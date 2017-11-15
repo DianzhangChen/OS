@@ -318,7 +318,7 @@ boot loader通过`ELFHDR->e_phnum`得知Program header table有多少个项目,�
 73              movl    $0x0,%ebp                      # nuke frame pointer                                                                
 ```
 其对应的代码*/kern/entry.S*为：
-```
+``` nasm
 .globl entry
 entry:
 movw	$0x1234,0x472	# warm boot
@@ -346,10 +346,10 @@ movl	%eax, %cr0
 mov	$relocated, %eax
 jmp	*%eax
 relocated:                        
-```c
+```
 
 以上代码我们发现*cr3*寄存器存放的是*entry_pgdir*的地址。我们指导*cr3*都是存储页表的基址的；我们去*entrypgdir.c*文件看一下*entry_pgdir*存放的是啥：
-```
+``` c
 pde_t entry_pgdir[NPDENTRIES] = {
     // Map VA's [0, 4MB) to PA's [0, 4MB)
     [0]
@@ -368,7 +368,7 @@ pde_t entry_pgdir[NPDENTRIES] = {
 当给定一个虚拟地址时，会先使用高10位（31:22）来索引 page directory（其中page directory 的基址存放在 **cr3** 寄存器中。）,得到页表的基址后，使用次高10位（21:12）来索引页表，从而得到页的基址。最后通过低12位（11:0）得到具体地址。
 
 由于**页表项**都是指向一个页的基址，而页都是4KB对齐的，所以页表项的低12位肯定是0，所以可以在页表项的低12位存储别的控制信息：
-```c
+``` c 
 // Page table/directory entry flags.
 #define PTE_P        0x001    // Present
 #define PTE_W        0x002    // Writeable
@@ -410,8 +410,8 @@ static void putch(int ch, int *cnt); // 通过调用console的cputchar() 函数�
 
 ### 3.2.2 vprintfmt
 
-**vprintfmt**主要用于遍历输出字符串；它从头开始遍历**fmt**字符串，逐个输出字符，当遇到**\%**时，就判断后面跟的字符(比如：d、l、c、s等等)来判断此处的占位符是啥，然后做出相应的操作。
-比如，当**\%**后面跟的**d**时说明是一个十进制的数字，所以会去读取一个数（*getint()*）；然后设置数的base为10（ *base=10;* ）,然后调用**printnum()**来输出该数字。
+**vprintfmt**主要用于遍历输出字符串；它从头开始遍历**fmt**字符串，逐个输出字符，当遇到** % **时，就判断后面跟的字符(比如：d、l、c、s等等)来判断此处的占位符是啥，然后做出相应的操作。
+比如，当** % **后面跟的**d**时说明是一个十进制的数字，所以会去读取一个数（*getint()*）；然后设置数的base为10（ *base=10;* ）,然后调用**printnum()**来输出该数字。
 ```c
 // /lib/printfmt.c中的vprintfmt函数
 // 格式化输出％d的情况。
