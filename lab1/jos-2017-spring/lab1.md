@@ -471,6 +471,7 @@ static void putch(int ch, int *cnt); // 通过调用console的cputchar() 函数�
 ## 3.3 Stack
 
 首先看一下当test_backtrace调用test_backtrace的栈的结构：
+
 |栈|寄存器|函数|
 |---|---|---|
 |`test_backtrace` 接受到本层参数1 | <- old esp|caller|
