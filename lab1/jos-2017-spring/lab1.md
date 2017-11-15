@@ -42,7 +42,7 @@
 ```
 在以上区域中，最重要的是Basic Input/Output System (`BIOS`)，其地址为`0x000F0000 -> 0x000FFFFF`的64K大小的区域。
 当开机之后系统执行的`第一条指令`是：
-```
+``` nasm
 [f000:fff0] 0xffff0: ljmp $0xf000,$0xe05b
 ```
 我们知道该条指令在BIOS的最上面16byte的位置（`0xffff0` is 16 bytes before the end of the BIOS (0x100000)），是一条跳转指令，该跳转指令跳到BIOS的较低的位置。
@@ -77,7 +77,7 @@ Boot Loader主要完成的功能：
 ### 开启保护模式
 开启保护模式涉及到了cr0寄存器下的PE位(即第0位)，当PE置1后，CPU将开启保护模式，此时保护模式下的分段保护机制将会被一同开启(分页机制没有开启)，故在开启保护模式前，需要设置好全局描述符表。
 JOS中对于保护模式的开启有以下代码：
-```
+``` nasm
   # Switch from real to protected mode, using a bootstrap GDT
   # and segment translation that makes virtual addresses 
   # identical to their physical addresses, so that the 
@@ -94,7 +94,7 @@ JOS中对于保护模式的开启有以下代码：
 
 ```
 注意该关键的跳转：
-```
+``` nasm
 .set PROT_MODE_CSEG, 0x8         # kernel code segment selector
 .set PROT_MODE_DSEG, 0x10        # kernel data segment selector
 ljmp    $PROT_MODE_CSEG, $protcseg
@@ -112,18 +112,18 @@ ljmp    $PROT_MODE_CSEG, $protcseg
 
 GDT(Global Descriptor Table)是内存中的一个表，用于定义进程的内存分段情况。GDT设置一些段寄存器，从而使得能够平稳转换为保护模式。
 GDT由一个特殊的寄存器GDTR(GDT Register)指向。该GDTR总共48位，低16位描述GDT的大小，高32位描述GDT在内存中的地址；以下是GDTR的格式：
-```
+``` 
 |LIMIT|----BASE----|
 ```
 * LIMIT: 表示GDT的大小，比实际的小1，如果LIMIT为15那么说明大小为16.
 BASE: 表示GDT在内存中的大小。
 
 如何加载GDTR呢：
-```
+``` nasm
 lgdt [gdtr]   // 加载GDTR
 ```
 其中*gdtr*是一个指向6字节大小内存的指针。为了加载新的GDT, 段寄存器需要重新加载，其中*CS* 段寄存器需要使用far jump来加载：
-``` 
+``` nasm
 flush_gdt:
     lgdt [gdtr]
     jmp 0x08:complete_flush
@@ -188,7 +188,7 @@ gdt为预先设定好的全局描述符表。对于全局描述符表的介绍�
 ## (b) 加载内核文件
 该代码在`boot/main.c`中：
 这一部分中，主要完成的工作就是将内核文件加载到内存中(/boot/main.c)，并将控制权限交给内核。在更进一步的介绍之前，首先阐述ELF文件格式。对于ELF文件格式的定义在<inc/elf.h>中。我们无需深入的了解ELF文件格式(如希望深入了解的话，在MIT6.828的指定文献中列出了ELF文件的详细格式内容)，实际上来说，ELF类似于一个超大的“结构体”，每一个部分都存放了一定的内容，而对于该内容的描述在“头部”中存放。这里给出了JOS下<inc/elf.h>中的定义以及解释。
-```
+```c
 struct Elf {
     uint32_t e_magic;    // must equal ELF_MAGIC
     uint8_t e_elf[12];
@@ -221,7 +221,7 @@ struct Proghdr {
 ```
 下述代码主要是将内核读取到磁盘中，并最后将控制权移交给内核。
 
-```
+```c
 #define SECTSIZE    512
 #define ELFHDR      ((struct Elf *) 0x10000) // scratch space
 
@@ -318,7 +318,7 @@ boot loader通过`ELFHDR->e_phnum`得知Program header table有多少个项目,�
 73              movl    $0x0,%ebp                      # nuke frame pointer                                                                
 ```
 其对应的代码*/kern/entry.S*为：
-```c
+```
 .globl entry
 entry:
 movw	$0x1234,0x472	# warm boot
@@ -346,7 +346,7 @@ movl	%eax, %cr0
 mov	$relocated, %eax
 jmp	*%eax
 relocated:                        
-```
+```c
 
 以上代码我们发现*cr3*寄存器存放的是*entry_pgdir*的地址。我们指导*cr3*都是存储页表的基址的；我们去*entrypgdir.c*文件看一下*entry_pgdir*存放的是啥：
 ```
@@ -368,7 +368,7 @@ pde_t entry_pgdir[NPDENTRIES] = {
 当给定一个虚拟地址时，会先使用高10位（31:22）来索引 page directory（其中page directory 的基址存放在 **cr3** 寄存器中。）,得到页表的基址后，使用次高10位（21:12）来索引页表，从而得到页的基址。最后通过低12位（11:0）得到具体地址。
 
 由于**页表项**都是指向一个页的基址，而页都是4KB对齐的，所以页表项的低12位肯定是0，所以可以在页表项的低12位存储别的控制信息：
-```
+```c
 // Page table/directory entry flags.
 #define PTE_P        0x001    // Present
 #define PTE_W        0x002    // Writeable
@@ -410,8 +410,8 @@ static void putch(int ch, int *cnt); // 通过调用console的cputchar() 函数�
 
 ### 3.2.2 vprintfmt
 
-**vprintfmt**主要用于遍历输出字符串；它从头开始遍历**fmt**字符串，逐个输出字符，当遇到**%**时，就判断后面跟的字符(比如：d、l、c、s等等)来判断此处的占位符是啥，然后做出相应的操作。
-比如，当**%**后面跟的**d**时说明是一个十进制的数字，所以会去读取一个数（*getint()*）；然后设置数的base为10（ *base=10;* ）,然后调用**printnum()**来输出该数字。
+**vprintfmt**主要用于遍历输出字符串；它从头开始遍历**fmt**字符串，逐个输出字符，当遇到**\%**时，就判断后面跟的字符(比如：d、l、c、s等等)来判断此处的占位符是啥，然后做出相应的操作。
+比如，当**\%**后面跟的**d**时说明是一个十进制的数字，所以会去读取一个数（*getint()*）；然后设置数的base为10（ *base=10;* ）,然后调用**printnum()**来输出该数字。
 ```c
 // /lib/printfmt.c中的vprintfmt函数
 // 格式化输出％d的情况。
