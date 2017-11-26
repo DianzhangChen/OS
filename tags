@@ -1,0 +1,679 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLOC_ZERO	jos-2017-spring/kern/pmap.h	/^	ALLOC_ZERO = 1<<0,$/;"	e	enum:__anon2
+ALT	jos-2017-spring/kern/console.c	218;"	d	file:
+AR	jos-2017-spring/GNUmakefile	/^AR	:= $(GCCPREFIX)ar$/;"	m
+AS	jos-2017-spring/GNUmakefile	/^AS	:= $(GCCPREFIX)as$/;"	m
+ASM	jos-2017-spring/lib/string.c	9;"	d	file:
+BUFLEN	jos-2017-spring/lib/readline.c	4;"	d	file:
+C	jos-2017-spring/kern/console.c	285;"	d	file:
+CAPSLOCK	jos-2017-spring/kern/console.c	220;"	d	file:
+CC	jos-2017-spring/GNUmakefile	/^CC	:= $(GCCPREFIX)gcc -pipe$/;"	m
+CFLAGS	jos-2017-spring/GNUmakefile	/^CFLAGS := $(CFLAGS) $(DEFS) $(LABDEFS) -O1 -fno-builtin -I$(TOP) -MD $/;"	m
+CGA_BASE	jos-2017-spring/kern/console.h	13;"	d
+CGA_BUF	jos-2017-spring/kern/console.h	14;"	d
+CHECKSUM	jos-2017-spring/kern/entry.S	/^#define CHECKSUM (-(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS))$/;"	d
+CMDBUF_SIZE	jos-2017-spring/kern/monitor.c	14;"	d	file:
+CMDBYTE	jos-2017-spring/inc/kbdreg.h	60;"	d
+COM1	jos-2017-spring/kern/console.c	26;"	d	file:
+COM_DLL	jos-2017-spring/kern/console.c	30;"	d	file:
+COM_DLM	jos-2017-spring/kern/console.c	31;"	d	file:
+COM_FCR	jos-2017-spring/kern/console.c	35;"	d	file:
+COM_IER	jos-2017-spring/kern/console.c	32;"	d	file:
+COM_IER_RDI	jos-2017-spring/kern/console.c	33;"	d	file:
+COM_IIR	jos-2017-spring/kern/console.c	34;"	d	file:
+COM_LCR	jos-2017-spring/kern/console.c	36;"	d	file:
+COM_LCR_DLAB	jos-2017-spring/kern/console.c	37;"	d	file:
+COM_LCR_WLEN8	jos-2017-spring/kern/console.c	38;"	d	file:
+COM_LSR	jos-2017-spring/kern/console.c	43;"	d	file:
+COM_LSR_DATA	jos-2017-spring/kern/console.c	44;"	d	file:
+COM_LSR_TSRE	jos-2017-spring/kern/console.c	46;"	d	file:
+COM_LSR_TXRDY	jos-2017-spring/kern/console.c	45;"	d	file:
+COM_MCR	jos-2017-spring/kern/console.c	39;"	d	file:
+COM_MCR_DTR	jos-2017-spring/kern/console.c	41;"	d	file:
+COM_MCR_OUT2	jos-2017-spring/kern/console.c	42;"	d	file:
+COM_MCR_RTS	jos-2017-spring/kern/console.c	40;"	d	file:
+COM_RX	jos-2017-spring/kern/console.c	28;"	d	file:
+COM_TX	jos-2017-spring/kern/console.c	29;"	d	file:
+CONSBUFSIZE	jos-2017-spring/kern/console.c	381;"	d	file:
+CR0_AM	jos-2017-spring/inc/mmu.h	86;"	d
+CR0_CD	jos-2017-spring/inc/mmu.h	88;"	d
+CR0_EM	jos-2017-spring/inc/mmu.h	81;"	d
+CR0_ET	jos-2017-spring/inc/mmu.h	83;"	d
+CR0_MP	jos-2017-spring/inc/mmu.h	80;"	d
+CR0_NE	jos-2017-spring/inc/mmu.h	84;"	d
+CR0_NW	jos-2017-spring/inc/mmu.h	87;"	d
+CR0_PE	jos-2017-spring/inc/mmu.h	79;"	d
+CR0_PG	jos-2017-spring/inc/mmu.h	89;"	d
+CR0_TS	jos-2017-spring/inc/mmu.h	82;"	d
+CR0_WP	jos-2017-spring/inc/mmu.h	85;"	d
+CR4_DE	jos-2017-spring/inc/mmu.h	94;"	d
+CR4_MCE	jos-2017-spring/inc/mmu.h	92;"	d
+CR4_PCE	jos-2017-spring/inc/mmu.h	91;"	d
+CR4_PSE	jos-2017-spring/inc/mmu.h	93;"	d
+CR4_PVI	jos-2017-spring/inc/mmu.h	96;"	d
+CR4_TSD	jos-2017-spring/inc/mmu.h	95;"	d
+CR4_VME	jos-2017-spring/inc/mmu.h	97;"	d
+CRT_COLS	jos-2017-spring/kern/console.h	17;"	d
+CRT_ROWS	jos-2017-spring/kern/console.h	16;"	d
+CRT_SIZE	jos-2017-spring/kern/console.h	18;"	d
+CTL	jos-2017-spring/kern/console.c	217;"	d	file:
+Command	jos-2017-spring/kern/monitor.c	/^struct Command {$/;"	s	file:
+E0ESC	jos-2017-spring/kern/console.c	224;"	d	file:
+ELFHDR	jos-2017-spring/boot/main.c	33;"	d	file:
+ELF_MAGIC	jos-2017-spring/inc/elf.h	4;"	d
+ELF_PROG_FLAG_EXEC	jos-2017-spring/inc/elf.h	52;"	d
+ELF_PROG_FLAG_READ	jos-2017-spring/inc/elf.h	54;"	d
+ELF_PROG_FLAG_WRITE	jos-2017-spring/inc/elf.h	53;"	d
+ELF_PROG_LOAD	jos-2017-spring/inc/elf.h	49;"	d
+ELF_SHN_UNDEF	jos-2017-spring/inc/elf.h	63;"	d
+ELF_SHT_NULL	jos-2017-spring/inc/elf.h	57;"	d
+ELF_SHT_PROGBITS	jos-2017-spring/inc/elf.h	58;"	d
+ELF_SHT_STRTAB	jos-2017-spring/inc/elf.h	60;"	d
+ELF_SHT_SYMTAB	jos-2017-spring/inc/elf.h	59;"	d
+EXTPHYSMEM	jos-2017-spring/inc/memlayout.h	87;"	d
+E_BAD_ENV	jos-2017-spring/inc/error.h	/^	E_BAD_ENV	= 2,	\/\/ Environment doesn't exist or otherwise$/;"	e	enum:__anon3
+E_FAULT	jos-2017-spring/inc/error.h	/^	E_FAULT		= 6,	\/\/ Memory fault$/;"	e	enum:__anon3
+E_INVAL	jos-2017-spring/inc/error.h	/^	E_INVAL		= 3,	\/\/ Invalid parameter$/;"	e	enum:__anon3
+E_NO_FREE_ENV	jos-2017-spring/inc/error.h	/^	E_NO_FREE_ENV	= 5,	\/\/ Attempt to create a new environment beyond$/;"	e	enum:__anon3
+E_NO_MEM	jos-2017-spring/inc/error.h	/^	E_NO_MEM	= 4,	\/\/ Request failed due to memory shortage$/;"	e	enum:__anon3
+E_UNSPECIFIED	jos-2017-spring/inc/error.h	/^	E_UNSPECIFIED	= 1,	\/\/ Unspecified or unknown problem$/;"	e	enum:__anon3
+Eipdebuginfo	jos-2017-spring/kern/kdebug.h	/^struct Eipdebuginfo {$/;"	s
+Elf	jos-2017-spring/inc/elf.h	/^struct Elf {$/;"	s
+FEC_PR	jos-2017-spring/inc/mmu.h	123;"	d
+FEC_U	jos-2017-spring/inc/mmu.h	125;"	d
+FEC_WR	jos-2017-spring/inc/mmu.h	124;"	d
+FL_AC	jos-2017-spring/inc/mmu.h	117;"	d
+FL_AF	jos-2017-spring/inc/mmu.h	102;"	d
+FL_CF	jos-2017-spring/inc/mmu.h	100;"	d
+FL_DF	jos-2017-spring/inc/mmu.h	107;"	d
+FL_ID	jos-2017-spring/inc/mmu.h	120;"	d
+FL_IF	jos-2017-spring/inc/mmu.h	106;"	d
+FL_IOPL_0	jos-2017-spring/inc/mmu.h	110;"	d
+FL_IOPL_1	jos-2017-spring/inc/mmu.h	111;"	d
+FL_IOPL_2	jos-2017-spring/inc/mmu.h	112;"	d
+FL_IOPL_3	jos-2017-spring/inc/mmu.h	113;"	d
+FL_IOPL_MASK	jos-2017-spring/inc/mmu.h	109;"	d
+FL_NT	jos-2017-spring/inc/mmu.h	114;"	d
+FL_OF	jos-2017-spring/inc/mmu.h	108;"	d
+FL_PF	jos-2017-spring/inc/mmu.h	101;"	d
+FL_RF	jos-2017-spring/inc/mmu.h	115;"	d
+FL_SF	jos-2017-spring/inc/mmu.h	104;"	d
+FL_TF	jos-2017-spring/inc/mmu.h	105;"	d
+FL_VIF	jos-2017-spring/inc/mmu.h	118;"	d
+FL_VIP	jos-2017-spring/inc/mmu.h	119;"	d
+FL_VM	jos-2017-spring/inc/mmu.h	116;"	d
+FL_ZF	jos-2017-spring/inc/mmu.h	103;"	d
+GCCPREFIX	jos-2017-spring/GNUmakefile	/^GCCPREFIX := $(shell if i386-jos-elf-objdump -i 2>&1 | grep '^elf32-i386$$' >\/dev\/null 2>&1; \\$/;"	m
+GCC_LIB	jos-2017-spring/GNUmakefile	/^GCC_LIB := $(shell $(CC) $(CFLAGS) -print-libgcc-file-name)$/;"	m
+GDBPORT	jos-2017-spring/GNUmakefile	/^GDBPORT	:= $(shell expr `id -u` % 5000 + 25000)$/;"	m
+GD_KD	jos-2017-spring/inc/memlayout.h	16;"	d
+GD_KT	jos-2017-spring/inc/memlayout.h	15;"	d
+GD_TSS	jos-2017-spring/inc/memlayout.h	19;"	d
+GD_UD	jos-2017-spring/inc/memlayout.h	18;"	d
+GD_UT	jos-2017-spring/inc/memlayout.h	17;"	d
+Gatedesc	jos-2017-spring/inc/mmu.h	/^struct Gatedesc {$/;"	s
+IMAGES	jos-2017-spring/GNUmakefile	/^IMAGES = $(OBJDIR)\/kern\/kernel.img$/;"	m
+IOPHYSMEM	jos-2017-spring/inc/memlayout.h	86;"	d
+IO_RTC	jos-2017-spring/kern/kclock.h	9;"	d
+JOS_INC_ASSERT_H	jos-2017-spring/inc/assert.h	4;"	d
+JOS_INC_ELF_H	jos-2017-spring/inc/elf.h	2;"	d
+JOS_INC_ERROR_H	jos-2017-spring/inc/error.h	4;"	d
+JOS_INC_MEMLAYOUT_H	jos-2017-spring/inc/memlayout.h	2;"	d
+JOS_INC_MMU_H	jos-2017-spring/inc/mmu.h	2;"	d
+JOS_INC_QUEUE_H	jos-2017-spring/inc/queue.h	36;"	d
+JOS_INC_STDARG_H	jos-2017-spring/inc/stdarg.h	4;"	d
+JOS_INC_STDIO_H	jos-2017-spring/inc/stdio.h	2;"	d
+JOS_INC_STRING_H	jos-2017-spring/inc/string.h	2;"	d
+JOS_INC_TYPES_H	jos-2017-spring/inc/types.h	2;"	d
+JOS_INC_X86_H	jos-2017-spring/inc/x86.h	2;"	d
+JOS_KBDREG_H	jos-2017-spring/inc/kbdreg.h	2;"	d
+JOS_KERN_KCLOCK_H	jos-2017-spring/kern/kclock.h	4;"	d
+JOS_KERN_KDEBUG_H	jos-2017-spring/kern/kdebug.h	2;"	d
+JOS_KERN_MONITOR_H	jos-2017-spring/kern/monitor.h	2;"	d
+JOS_KERN_PMAP_H	jos-2017-spring/kern/pmap.h	4;"	d
+JOS_STAB_H	jos-2017-spring/inc/stab.h	2;"	d
+KADDR	jos-2017-spring/kern/pmap.h	37;"	d
+KBCMDP	jos-2017-spring/inc/kbdreg.h	29;"	d
+KBC_AUXDISABLE	jos-2017-spring/inc/kbdreg.h	32;"	d
+KBC_AUXECHO	jos-2017-spring/inc/kbdreg.h	36;"	d
+KBC_AUXENABLE	jos-2017-spring/inc/kbdreg.h	33;"	d
+KBC_AUXTEST	jos-2017-spring/inc/kbdreg.h	34;"	d
+KBC_AUXWRITE	jos-2017-spring/inc/kbdreg.h	37;"	d
+KBC_DISABLE	jos-2017-spring/inc/kbdreg.h	66;"	d
+KBC_ECHO	jos-2017-spring/inc/kbdreg.h	71;"	d
+KBC_ENABLE	jos-2017-spring/inc/kbdreg.h	67;"	d
+KBC_KBDDISABLE	jos-2017-spring/inc/kbdreg.h	40;"	d
+KBC_KBDECHO	jos-2017-spring/inc/kbdreg.h	35;"	d
+KBC_KBDENABLE	jos-2017-spring/inc/kbdreg.h	41;"	d
+KBC_KBDTEST	jos-2017-spring/inc/kbdreg.h	39;"	d
+KBC_MODEIND	jos-2017-spring/inc/kbdreg.h	70;"	d
+KBC_PULSE0	jos-2017-spring/inc/kbdreg.h	42;"	d
+KBC_PULSE1	jos-2017-spring/inc/kbdreg.h	43;"	d
+KBC_PULSE2	jos-2017-spring/inc/kbdreg.h	44;"	d
+KBC_PULSE3	jos-2017-spring/inc/kbdreg.h	45;"	d
+KBC_RAMREAD	jos-2017-spring/inc/kbdreg.h	30;"	d
+KBC_RAMWRITE	jos-2017-spring/inc/kbdreg.h	31;"	d
+KBC_RESEND	jos-2017-spring/inc/kbdreg.h	64;"	d
+KBC_RESET	jos-2017-spring/inc/kbdreg.h	63;"	d
+KBC_SELFTEST	jos-2017-spring/inc/kbdreg.h	38;"	d
+KBC_SETDEFAULT	jos-2017-spring/inc/kbdreg.h	65;"	d
+KBC_SETTABLE	jos-2017-spring/inc/kbdreg.h	69;"	d
+KBC_TYPEMATIC	jos-2017-spring/inc/kbdreg.h	68;"	d
+KBDATAP	jos-2017-spring/inc/kbdreg.h	47;"	d
+KBOUTP	jos-2017-spring/inc/kbdreg.h	48;"	d
+KBR_ACK	jos-2017-spring/inc/kbdreg.h	76;"	d
+KBR_BREAK	jos-2017-spring/inc/kbdreg.h	79;"	d
+KBR_ECHO	jos-2017-spring/inc/kbdreg.h	81;"	d
+KBR_EXTENDED	jos-2017-spring/inc/kbdreg.h	74;"	d
+KBR_FAILURE	jos-2017-spring/inc/kbdreg.h	78;"	d
+KBR_OVERRUN	jos-2017-spring/inc/kbdreg.h	77;"	d
+KBR_RESEND	jos-2017-spring/inc/kbdreg.h	75;"	d
+KBR_RSTDONE	jos-2017-spring/inc/kbdreg.h	80;"	d
+KBSTATP	jos-2017-spring/inc/kbdreg.h	19;"	d
+KBS_DIB	jos-2017-spring/inc/kbdreg.h	20;"	d
+KBS_IBF	jos-2017-spring/inc/kbdreg.h	21;"	d
+KBS_NOSEC	jos-2017-spring/inc/kbdreg.h	24;"	d
+KBS_OCMD	jos-2017-spring/inc/kbdreg.h	23;"	d
+KBS_PERR	jos-2017-spring/inc/kbdreg.h	27;"	d
+KBS_RERR	jos-2017-spring/inc/kbdreg.h	26;"	d
+KBS_TERR	jos-2017-spring/inc/kbdreg.h	25;"	d
+KBS_WARM	jos-2017-spring/inc/kbdreg.h	22;"	d
+KC8_CPU	jos-2017-spring/inc/kbdreg.h	57;"	d
+KC8_IGNSEC	jos-2017-spring/inc/kbdreg.h	56;"	d
+KC8_KDISABLE	jos-2017-spring/inc/kbdreg.h	55;"	d
+KC8_KENABLE	jos-2017-spring/inc/kbdreg.h	59;"	d
+KC8_MDISABLE	jos-2017-spring/inc/kbdreg.h	54;"	d
+KC8_MENABLE	jos-2017-spring/inc/kbdreg.h	58;"	d
+KC8_TRANS	jos-2017-spring/inc/kbdreg.h	53;"	d
+KERNBASE	jos-2017-spring/inc/memlayout.h	81;"	d
+KERN_CFLAGS	jos-2017-spring/GNUmakefile	/^KERN_CFLAGS := $(CFLAGS) -DJOS_KERNEL -gstabs$/;"	m
+KEY_DEL	jos-2017-spring/inc/kbdreg.h	14;"	d
+KEY_DN	jos-2017-spring/inc/kbdreg.h	8;"	d
+KEY_END	jos-2017-spring/inc/kbdreg.h	6;"	d
+KEY_HOME	jos-2017-spring/inc/kbdreg.h	5;"	d
+KEY_INS	jos-2017-spring/inc/kbdreg.h	13;"	d
+KEY_LF	jos-2017-spring/inc/kbdreg.h	9;"	d
+KEY_PGDN	jos-2017-spring/inc/kbdreg.h	12;"	d
+KEY_PGUP	jos-2017-spring/inc/kbdreg.h	11;"	d
+KEY_RT	jos-2017-spring/inc/kbdreg.h	10;"	d
+KEY_UP	jos-2017-spring/inc/kbdreg.h	7;"	d
+KSTACKTOP	jos-2017-spring/inc/memlayout.h	90;"	d
+KSTKSIZE	jos-2017-spring/inc/memlayout.h	91;"	d
+K_LDCMDBYTE	jos-2017-spring/inc/kbdreg.h	51;"	d
+K_RDCMDBYTE	jos-2017-spring/inc/kbdreg.h	50;"	d
+LAB	jos-2017-spring/conf/lab.mk	/^LAB=2$/;"	m
+LABSETUP	jos-2017-spring/GNUmakefile	/^LABSETUP ?= .\/$/;"	m
+LD	jos-2017-spring/GNUmakefile	/^LD	:= $(GCCPREFIX)ld$/;"	m
+LDFLAGS	jos-2017-spring/GNUmakefile	/^LDFLAGS := -m elf_i386$/;"	m
+LIST_EMPTY	jos-2017-spring/inc/queue.h	142;"	d
+LIST_ENTRY	jos-2017-spring/inc/queue.h	129;"	d
+LIST_FIRST	jos-2017-spring/inc/queue.h	147;"	d
+LIST_FOREACH	jos-2017-spring/inc/queue.h	160;"	d
+LIST_HEAD	jos-2017-spring/inc/queue.h	109;"	d
+LIST_HEAD_INITIALIZER	jos-2017-spring/inc/queue.h	118;"	d
+LIST_INIT	jos-2017-spring/inc/queue.h	168;"	d
+LIST_INSERT_AFTER	jos-2017-spring/inc/queue.h	177;"	d
+LIST_INSERT_BEFORE	jos-2017-spring/inc/queue.h	190;"	d
+LIST_INSERT_HEAD	jos-2017-spring/inc/queue.h	201;"	d
+LIST_NEXT	jos-2017-spring/inc/queue.h	153;"	d
+LIST_REMOVE	jos-2017-spring/inc/queue.h	212;"	d
+MAX	jos-2017-spring/inc/types.h	48;"	d
+MAXARGS	jos-2017-spring/kern/monitor.c	117;"	d	file:
+MAXERROR	jos-2017-spring/inc/error.h	/^	MAXERROR$/;"	e	enum:__anon3
+MC_NVRAM_SIZE	jos-2017-spring/kern/kclock.h	12;"	d
+MC_NVRAM_START	jos-2017-spring/kern/kclock.h	11;"	d
+MIN	jos-2017-spring/inc/types.h	42;"	d
+MONO_BASE	jos-2017-spring/kern/console.h	11;"	d
+MONO_BUF	jos-2017-spring/kern/console.h	12;"	d
+MULTIBOOT_HEADER_FLAGS	jos-2017-spring/kern/entry.S	/^#define MULTIBOOT_HEADER_FLAGS (0)$/;"	d
+MULTIBOOT_HEADER_MAGIC	jos-2017-spring/kern/entry.S	/^#define MULTIBOOT_HEADER_MAGIC (0x1BADB002)$/;"	d
+NCC	jos-2017-spring/GNUmakefile	/^NCC	:= gcc $(CC_VER) -pipe$/;"	m
+NCOMMANDS	jos-2017-spring/kern/monitor.c	28;"	d	file:
+NM	jos-2017-spring/GNUmakefile	/^NM	:= $(GCCPREFIX)nm$/;"	m
+NO	jos-2017-spring/kern/console.c	214;"	d	file:
+NPDENTRIES	jos-2017-spring/inc/mmu.h	45;"	d
+NPTENTRIES	jos-2017-spring/inc/mmu.h	46;"	d
+NULL	jos-2017-spring/inc/stdio.h	7;"	d
+NULL	jos-2017-spring/inc/types.h	5;"	d
+NUMLOCK	jos-2017-spring/kern/console.c	221;"	d	file:
+NVRAM_BASEHI	jos-2017-spring/kern/kclock.h	16;"	d
+NVRAM_BASELO	jos-2017-spring/kern/kclock.h	15;"	d
+NVRAM_CENTURY	jos-2017-spring/kern/kclock.h	27;"	d
+NVRAM_EXTHI	jos-2017-spring/kern/kclock.h	20;"	d
+NVRAM_EXTLO	jos-2017-spring/kern/kclock.h	19;"	d
+NVRAM_PEXTHI	jos-2017-spring/kern/kclock.h	24;"	d
+NVRAM_PEXTLO	jos-2017-spring/kern/kclock.h	23;"	d
+N_BCOMM	jos-2017-spring/inc/stab.h	37;"	d
+N_BINCL	jos-2017-spring/inc/stab.h	29;"	d
+N_BSLINE	jos-2017-spring/inc/stab.h	25;"	d
+N_DSLINE	jos-2017-spring/inc/stab.h	24;"	d
+N_ECOML	jos-2017-spring/inc/stab.h	39;"	d
+N_ECOMM	jos-2017-spring/inc/stab.h	38;"	d
+N_EINCL	jos-2017-spring/inc/stab.h	32;"	d
+N_ENTRY	jos-2017-spring/inc/stab.h	33;"	d
+N_EXCL	jos-2017-spring/inc/stab.h	35;"	d
+N_FNAME	jos-2017-spring/inc/stab.h	16;"	d
+N_FUN	jos-2017-spring/inc/stab.h	17;"	d
+N_GSYM	jos-2017-spring/inc/stab.h	15;"	d
+N_LBRAC	jos-2017-spring/inc/stab.h	34;"	d
+N_LCSYM	jos-2017-spring/inc/stab.h	19;"	d
+N_LENG	jos-2017-spring/inc/stab.h	40;"	d
+N_LSYM	jos-2017-spring/inc/stab.h	28;"	d
+N_MAIN	jos-2017-spring/inc/stab.h	20;"	d
+N_PC	jos-2017-spring/inc/stab.h	21;"	d
+N_PSYM	jos-2017-spring/inc/stab.h	31;"	d
+N_RBRAC	jos-2017-spring/inc/stab.h	36;"	d
+N_RSYM	jos-2017-spring/inc/stab.h	22;"	d
+N_SLINE	jos-2017-spring/inc/stab.h	23;"	d
+N_SO	jos-2017-spring/inc/stab.h	27;"	d
+N_SOL	jos-2017-spring/inc/stab.h	30;"	d
+N_SSYM	jos-2017-spring/inc/stab.h	26;"	d
+N_STSYM	jos-2017-spring/inc/stab.h	18;"	d
+OBJCOPY	jos-2017-spring/GNUmakefile	/^OBJCOPY	:= $(GCCPREFIX)objcopy$/;"	m
+OBJDIR	jos-2017-spring/GNUmakefile	/^OBJDIR := obj$/;"	m
+OBJDIRS	jos-2017-spring/GNUmakefile	/^OBJDIRS :=$/;"	m
+OBJDUMP	jos-2017-spring/GNUmakefile	/^OBJDUMP	:= $(GCCPREFIX)objdump$/;"	m
+PACKAGEDATE	jos-2017-spring/conf/lab.mk	/^PACKAGEDATE=Wed Sep 14 23:28:01 EDT 2011$/;"	m
+PADDR	jos-2017-spring/kern/pmap.h	25;"	d
+PDX	jos-2017-spring/inc/mmu.h	33;"	d
+PDXSHIFT	jos-2017-spring/inc/mmu.h	55;"	d
+PERL	jos-2017-spring/GNUmakefile	/^PERL	:= perl$/;"	m
+PFTEMP	jos-2017-spring/inc/memlayout.h	125;"	d
+PGADDR	jos-2017-spring/inc/mmu.h	42;"	d
+PGNUM	jos-2017-spring/inc/mmu.h	30;"	d
+PGOFF	jos-2017-spring/inc/mmu.h	39;"	d
+PGSHIFT	jos-2017-spring/inc/mmu.h	49;"	d
+PGSIZE	jos-2017-spring/inc/mmu.h	48;"	d
+PTE_A	jos-2017-spring/inc/mmu.h	63;"	d
+PTE_ADDR	jos-2017-spring/inc/mmu.h	76;"	d
+PTE_AVAIL	jos-2017-spring/inc/mmu.h	70;"	d
+PTE_D	jos-2017-spring/inc/mmu.h	64;"	d
+PTE_G	jos-2017-spring/inc/mmu.h	66;"	d
+PTE_P	jos-2017-spring/inc/mmu.h	58;"	d
+PTE_PCD	jos-2017-spring/inc/mmu.h	62;"	d
+PTE_PS	jos-2017-spring/inc/mmu.h	65;"	d
+PTE_PWT	jos-2017-spring/inc/mmu.h	61;"	d
+PTE_SYSCALL	jos-2017-spring/inc/mmu.h	73;"	d
+PTE_U	jos-2017-spring/inc/mmu.h	60;"	d
+PTE_W	jos-2017-spring/inc/mmu.h	59;"	d
+PTSHIFT	jos-2017-spring/inc/mmu.h	52;"	d
+PTSIZE	jos-2017-spring/inc/mmu.h	51;"	d
+PTX	jos-2017-spring/inc/mmu.h	36;"	d
+PTXSHIFT	jos-2017-spring/inc/mmu.h	54;"	d
+Page	jos-2017-spring/inc/memlayout.h	/^struct Page {$/;"	s
+Proghdr	jos-2017-spring/inc/elf.h	/^struct Proghdr {$/;"	s
+Pseudodesc	jos-2017-spring/inc/mmu.h	/^struct Pseudodesc {$/;"	s
+QEMU	jos-2017-spring/GNUmakefile	/^QEMU := $(shell if which qemu > \/dev\/null; \\$/;"	m
+QEMUGDB	jos-2017-spring/GNUmakefile	/^QEMUGDB = $(shell if $(QEMU) -nographic -help | grep -q '^-gdb'; \\$/;"	m
+QEMUOPTS	jos-2017-spring/GNUmakefile	/^QEMUOPTS = -hda $(OBJDIR)\/kern\/kernel.img -serial mon:stdio $(QEMUEXTRA)$/;"	m
+RELOC	jos-2017-spring/kern/entry.S	/^#define	RELOC(x) ((x) - KERNBASE)$/;"	d
+ROUNDDOWN	jos-2017-spring/inc/types.h	57;"	d
+ROUNDUP	jos-2017-spring/inc/types.h	63;"	d
+SCROLLLOCK	jos-2017-spring/kern/console.c	222;"	d	file:
+SECTSIZE	jos-2017-spring/boot/main.c	32;"	d	file:
+SEG	jos-2017-spring/inc/mmu.h	142;"	d
+SEG	jos-2017-spring/inc/mmu.h	172;"	d
+SEG16	jos-2017-spring/inc/mmu.h	176;"	d
+SEG_FAULT	jos-2017-spring/inc/mmu.h	170;"	d
+SEG_NULL	jos-2017-spring/inc/mmu.h	139;"	d
+SEG_NULL	jos-2017-spring/inc/mmu.h	168;"	d
+SETCALLGATE	jos-2017-spring/inc/mmu.h	296;"	d
+SETGATE	jos-2017-spring/inc/mmu.h	282;"	d
+SHIFT	jos-2017-spring/kern/console.c	216;"	d	file:
+SRL	jos-2017-spring/kern/entry.S	/^#define SRL(val, shamt)		(((val) >> (shamt)) & ~(-1 << (32 - (shamt))))$/;"	d
+STA_A	jos-2017-spring/inc/mmu.h	189;"	d
+STA_C	jos-2017-spring/inc/mmu.h	186;"	d
+STA_E	jos-2017-spring/inc/mmu.h	185;"	d
+STA_R	jos-2017-spring/inc/mmu.h	188;"	d
+STA_W	jos-2017-spring/inc/mmu.h	187;"	d
+STA_X	jos-2017-spring/inc/mmu.h	184;"	d
+STS_CG16	jos-2017-spring/inc/mmu.h	195;"	d
+STS_CG32	jos-2017-spring/inc/mmu.h	201;"	d
+STS_IG16	jos-2017-spring/inc/mmu.h	197;"	d
+STS_IG32	jos-2017-spring/inc/mmu.h	202;"	d
+STS_LDT	jos-2017-spring/inc/mmu.h	193;"	d
+STS_T16A	jos-2017-spring/inc/mmu.h	192;"	d
+STS_T16B	jos-2017-spring/inc/mmu.h	194;"	d
+STS_T32A	jos-2017-spring/inc/mmu.h	199;"	d
+STS_T32B	jos-2017-spring/inc/mmu.h	200;"	d
+STS_TG	jos-2017-spring/inc/mmu.h	196;"	d
+STS_TG16	jos-2017-spring/inc/mmu.h	198;"	d
+STS_TG32	jos-2017-spring/inc/mmu.h	203;"	d
+Secthdr	jos-2017-spring/inc/elf.h	/^struct Secthdr {$/;"	s
+Segdesc	jos-2017-spring/inc/mmu.h	/^struct Segdesc {$/;"	s
+Stab	jos-2017-spring/inc/stab.h	/^struct Stab {$/;"	s
+TAR	jos-2017-spring/GNUmakefile	/^TAR	:= gtar$/;"	m
+TOP	jos-2017-spring/GNUmakefile	/^TOP = .$/;"	m
+Taskstate	jos-2017-spring/inc/mmu.h	/^struct Taskstate {$/;"	s
+UENVS	jos-2017-spring/inc/memlayout.h	104;"	d
+ULDFLAGS	jos-2017-spring/GNUmakefile	/^ULDFLAGS := -T user\/user.ld$/;"	m
+ULIM	jos-2017-spring/inc/memlayout.h	92;"	d
+UPAGES	jos-2017-spring/inc/memlayout.h	102;"	d
+USER_CFLAGS	jos-2017-spring/GNUmakefile	/^USER_CFLAGS := $(CFLAGS) -DJOS_USER -gstabs$/;"	m
+USTABDATA	jos-2017-spring/inc/memlayout.h	127;"	d
+USTACKTOP	jos-2017-spring/inc/memlayout.h	116;"	d
+UTEMP	jos-2017-spring/inc/memlayout.h	122;"	d
+UTEXT	jos-2017-spring/inc/memlayout.h	119;"	d
+UTOP	jos-2017-spring/inc/memlayout.h	111;"	d
+UVPT	jos-2017-spring/inc/memlayout.h	100;"	d
+UXSTACKTOP	jos-2017-spring/inc/memlayout.h	113;"	d
+V	jos-2017-spring/conf/env.mk	/^V = @$/;"	m
+WHITESPACE	jos-2017-spring/kern/monitor.c	116;"	d	file:
+_CONSOLE_H_	jos-2017-spring/kern/console.h	4;"	d
+_kaddr	jos-2017-spring/kern/pmap.h	/^_kaddr(const char *file, int line, physaddr_t pa)$/;"	f
+_paddr	jos-2017-spring/kern/pmap.h	/^_paddr(const char *file, int line, void *kva)$/;"	f
+_panic	jos-2017-spring/kern/init.c	/^_panic(const char *file, int line, const char *fmt,...)$/;"	f
+_start	jos-2017-spring/kern/entry.S	/^_start = RELOC(entry)$/;"	d
+_warn	jos-2017-spring/kern/init.c	/^_warn(const char *file, int line, const char *fmt,...)$/;"	f
+addr_6845	jos-2017-spring/kern/console.c	/^static unsigned addr_6845;$/;"	v	file:
+assert	jos-2017-spring/inc/assert.h	14;"	d
+bool	jos-2017-spring/inc/types.h	/^typedef int bool;$/;"	t
+boot_alloc	jos-2017-spring/kern/pmap.c	/^boot_alloc(uint32_t n)$/;"	f	file:
+boot_map_region	jos-2017-spring/kern/pmap.c	/^boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm)$/;"	f	file:
+boot_map_region_large	jos-2017-spring/kern/pmap.c	/^boot_map_region_large(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm)$/;"	f	file:
+bootmain	jos-2017-spring/boot/main.c	/^bootmain(void)$/;"	f
+bootstack	jos-2017-spring/kern/entry.S	/^bootstack:$/;"	l
+bootstacktop	jos-2017-spring/kern/entry.S	/^bootstacktop:$/;"	l
+breakpoint	jos-2017-spring/inc/x86.h	/^breakpoint(void)$/;"	f
+buf	jos-2017-spring/kern/console.c	/^	uint8_t buf[CONSBUFSIZE];$/;"	m	struct:__anon1	file:
+buf	jos-2017-spring/lib/printfmt.c	/^	char *buf;$/;"	m	struct:sprintbuf	file:
+buf	jos-2017-spring/lib/readline.c	/^static char buf[BUFLEN];$/;"	v	file:
+cga_init	jos-2017-spring/kern/console.c	/^cga_init(void)$/;"	f	file:
+cga_putc	jos-2017-spring/kern/console.c	/^cga_putc(int c)$/;"	f	file:
+charcode	jos-2017-spring/kern/console.c	/^static uint8_t *charcode[4] = {$/;"	v	file:
+check	jos-2017-spring/grade-lab2.sh	/^check () {$/;"	f
+check_kern_pgdir	jos-2017-spring/kern/pmap.c	/^check_kern_pgdir(void)$/;"	f	file:
+check_page	jos-2017-spring/kern/pmap.c	/^check_page(void)$/;"	f	file:
+check_page_alloc	jos-2017-spring/kern/pmap.c	/^check_page_alloc(void)$/;"	f	file:
+check_page_free_list	jos-2017-spring/kern/pmap.c	/^check_page_free_list(bool only_low_memory)$/;"	f	file:
+check_page_installed_pgdir	jos-2017-spring/kern/pmap.c	/^check_page_installed_pgdir(void)$/;"	f	file:
+check_va2pa	jos-2017-spring/kern/pmap.c	/^check_va2pa(pde_t *pgdir, uintptr_t va)$/;"	f	file:
+check_va2pa_large	jos-2017-spring/kern/pmap.c	/^check_va2pa_large(pde_t *pgdir, uintptr_t va)$/;"	f	file:
+chunk_list	jos-2017-spring/kern/pmap.c	/^static struct Page *chunk_list;$/;"	v	typeref:struct:Page	file:
+cnt	jos-2017-spring/lib/printfmt.c	/^	int cnt;$/;"	m	struct:sprintbuf	file:
+commands	jos-2017-spring/kern/monitor.c	/^static struct Command commands[] = {$/;"	v	typeref:struct:Command	file:
+cons	jos-2017-spring/kern/console.c	/^} cons;$/;"	v	typeref:struct:__anon1	file:
+cons_getc	jos-2017-spring/kern/console.c	/^cons_getc(void)$/;"	f
+cons_init	jos-2017-spring/kern/console.c	/^cons_init(void)$/;"	f
+cons_intr	jos-2017-spring/kern/console.c	/^cons_intr(int (*proc)(void))$/;"	f	file:
+cons_putc	jos-2017-spring/kern/console.c	/^cons_putc(int c)$/;"	f	file:
+cprintf	jos-2017-spring/kern/printf.c	/^cprintf(const char *fmt, ...)$/;"	f
+cpuid	jos-2017-spring/inc/x86.h	/^cpuid(uint32_t info, uint32_t *eaxp, uint32_t *ebxp, uint32_t *ecxp, uint32_t *edxp)$/;"	f
+cputchar	jos-2017-spring/kern/console.c	/^cputchar(int c)$/;"	f
+crt_buf	jos-2017-spring/kern/console.c	/^static uint16_t *crt_buf;$/;"	v	file:
+crt_pos	jos-2017-spring/kern/console.c	/^static uint16_t crt_pos;$/;"	v	file:
+ctlmap	jos-2017-spring/kern/console.c	/^static uint8_t ctlmap[256] = $/;"	v	file:
+debuginfo_eip	jos-2017-spring/kern/kdebug.c	/^debuginfo_eip(uintptr_t addr, struct Eipdebuginfo *info)$/;"	f
+delay	jos-2017-spring/kern/console.c	/^delay(void)$/;"	f	file:
+desc	jos-2017-spring/kern/monitor.c	/^	const char *desc;$/;"	m	struct:Command	file:
+do_overflow	jos-2017-spring/kern/monitor.c	/^do_overflow(void)$/;"	f
+e_ehsize	jos-2017-spring/inc/elf.h	/^	uint16_t e_ehsize;$/;"	m	struct:Elf
+e_elf	jos-2017-spring/inc/elf.h	/^	uint8_t e_elf[12];$/;"	m	struct:Elf
+e_entry	jos-2017-spring/inc/elf.h	/^	uint32_t e_entry;$/;"	m	struct:Elf
+e_flags	jos-2017-spring/inc/elf.h	/^	uint32_t e_flags;$/;"	m	struct:Elf
+e_machine	jos-2017-spring/inc/elf.h	/^	uint16_t e_machine;$/;"	m	struct:Elf
+e_magic	jos-2017-spring/inc/elf.h	/^	uint32_t e_magic;	\/\/ must equal ELF_MAGIC$/;"	m	struct:Elf
+e_phentsize	jos-2017-spring/inc/elf.h	/^	uint16_t e_phentsize;$/;"	m	struct:Elf
+e_phnum	jos-2017-spring/inc/elf.h	/^	uint16_t e_phnum;$/;"	m	struct:Elf
+e_phoff	jos-2017-spring/inc/elf.h	/^	uint32_t e_phoff;$/;"	m	struct:Elf
+e_shentsize	jos-2017-spring/inc/elf.h	/^	uint16_t e_shentsize;$/;"	m	struct:Elf
+e_shnum	jos-2017-spring/inc/elf.h	/^	uint16_t e_shnum;$/;"	m	struct:Elf
+e_shoff	jos-2017-spring/inc/elf.h	/^	uint32_t e_shoff;$/;"	m	struct:Elf
+e_shstrndx	jos-2017-spring/inc/elf.h	/^	uint16_t e_shstrndx;$/;"	m	struct:Elf
+e_type	jos-2017-spring/inc/elf.h	/^	uint16_t e_type;$/;"	m	struct:Elf
+e_version	jos-2017-spring/inc/elf.h	/^	uint32_t e_version;$/;"	m	struct:Elf
+ebuf	jos-2017-spring/lib/printfmt.c	/^	char *ebuf;$/;"	m	struct:sprintbuf	file:
+echo_n	jos-2017-spring/grade-functions.sh	/^echo_n () {$/;"	f
+eip_file	jos-2017-spring/kern/kdebug.h	/^	const char *eip_file;		\/\/ Source code filename for EIP$/;"	m	struct:Eipdebuginfo
+eip_fn_addr	jos-2017-spring/kern/kdebug.h	/^	uintptr_t eip_fn_addr;		\/\/ Address of start of function$/;"	m	struct:Eipdebuginfo
+eip_fn_name	jos-2017-spring/kern/kdebug.h	/^	const char *eip_fn_name;	\/\/ Name of function containing EIP$/;"	m	struct:Eipdebuginfo
+eip_fn_namelen	jos-2017-spring/kern/kdebug.h	/^	int eip_fn_namelen;		\/\/ Length of function name$/;"	m	struct:Eipdebuginfo
+eip_fn_narg	jos-2017-spring/kern/kdebug.h	/^	int eip_fn_narg;		\/\/ Number of function arguments$/;"	m	struct:Eipdebuginfo
+eip_line	jos-2017-spring/kern/kdebug.h	/^	int eip_line;			\/\/ Source code linenumber for EIP$/;"	m	struct:Eipdebuginfo
+entry	jos-2017-spring/kern/entry.S	/^entry:$/;"	l
+entry_pgdir	jos-2017-spring/kern/entrypgdir.c	/^pde_t entry_pgdir[NPDENTRIES] = {$/;"	v
+entry_pgtable	jos-2017-spring/kern/entrypgdir.c	/^pte_t entry_pgtable[NPTENTRIES] = {$/;"	v
+entry_pgtable	jos-2017-spring/kern/entrypgdir.c	/^pte_t entry_pgtable[NPTENTRIES];$/;"	v
+error_string	jos-2017-spring/lib/printfmt.c	/^static const char * const error_string[MAXERROR] =$/;"	v	file:
+fail	jos-2017-spring/grade-functions.sh	/^fail () {$/;"	f
+func	jos-2017-spring/kern/monitor.c	/^	int (*func)(int argc, char** argv, struct Trapframe* tf);$/;"	m	struct:Command	file:
+gd_args	jos-2017-spring/inc/mmu.h	/^	unsigned gd_args : 5;        \/\/ # args, 0 for interrupt\/trap gates$/;"	m	struct:Gatedesc
+gd_dpl	jos-2017-spring/inc/mmu.h	/^	unsigned gd_dpl : 2;         \/\/ descriptor(meaning new) privilege level$/;"	m	struct:Gatedesc
+gd_off_15_0	jos-2017-spring/inc/mmu.h	/^	unsigned gd_off_15_0 : 16;   \/\/ low 16 bits of offset in segment$/;"	m	struct:Gatedesc
+gd_off_31_16	jos-2017-spring/inc/mmu.h	/^	unsigned gd_off_31_16 : 16;  \/\/ high bits of offset in segment$/;"	m	struct:Gatedesc
+gd_p	jos-2017-spring/inc/mmu.h	/^	unsigned gd_p : 1;           \/\/ Present$/;"	m	struct:Gatedesc
+gd_rsv1	jos-2017-spring/inc/mmu.h	/^	unsigned gd_rsv1 : 3;        \/\/ reserved(should be zero I guess)$/;"	m	struct:Gatedesc
+gd_s	jos-2017-spring/inc/mmu.h	/^	unsigned gd_s : 1;           \/\/ must be 0 (system)$/;"	m	struct:Gatedesc
+gd_ss	jos-2017-spring/inc/mmu.h	/^	unsigned gd_ss : 16;         \/\/ segment selector$/;"	m	struct:Gatedesc
+gd_type	jos-2017-spring/inc/mmu.h	/^	unsigned gd_type : 4;        \/\/ type(STS_{TG,IG32,TG32})$/;"	m	struct:Gatedesc
+gdt	jos-2017-spring/boot/boot.S	/^gdt:$/;"	l
+gdtdesc	jos-2017-spring/boot/boot.S	/^gdtdesc:$/;"	l
+getchar	jos-2017-spring/kern/console.c	/^getchar(void)$/;"	f
+getint	jos-2017-spring/lib/printfmt.c	/^getint(va_list *ap, int lflag)$/;"	f	file:
+getuint	jos-2017-spring/lib/printfmt.c	/^getuint(va_list *ap, int lflag)$/;"	f	file:
+i386_detect_memory	jos-2017-spring/kern/pmap.c	/^i386_detect_memory(void)$/;"	f	file:
+i386_init	jos-2017-spring/kern/init.c	/^i386_init(void)$/;"	f
+inb	jos-2017-spring/inc/x86.h	/^inb(int port)$/;"	f
+inl	jos-2017-spring/inc/x86.h	/^inl(int port)$/;"	f
+insb	jos-2017-spring/inc/x86.h	/^insb(int port, void *addr, int cnt)$/;"	f
+insl	jos-2017-spring/inc/x86.h	/^insl(int port, void *addr, int cnt)$/;"	f
+insw	jos-2017-spring/inc/x86.h	/^insw(int port, void *addr, int cnt)$/;"	f
+int16_t	jos-2017-spring/inc/types.h	/^typedef short int16_t;$/;"	t
+int32_t	jos-2017-spring/inc/types.h	/^typedef int int32_t;$/;"	t
+int64_t	jos-2017-spring/inc/types.h	/^typedef long long int64_t;$/;"	t
+int8_t	jos-2017-spring/inc/types.h	/^typedef __signed char int8_t;$/;"	t
+intptr_t	jos-2017-spring/inc/types.h	/^typedef int32_t intptr_t;$/;"	t
+invlpg	jos-2017-spring/inc/x86.h	/^invlpg(void *addr)$/;"	f
+inw	jos-2017-spring/inc/x86.h	/^inw(int port)$/;"	f
+iscons	jos-2017-spring/kern/console.c	/^iscons(int fdnum)$/;"	f
+kbd_init	jos-2017-spring/kern/console.c	/^kbd_init(void)$/;"	f	file:
+kbd_intr	jos-2017-spring/kern/console.c	/^kbd_intr(void)$/;"	f
+kbd_proc_data	jos-2017-spring/kern/console.c	/^kbd_proc_data(void)$/;"	f	file:
+kern_pgdir	jos-2017-spring/kern/pmap.c	/^pde_t *kern_pgdir;		\/\/ Kernel's initial page directory$/;"	v
+lcr0	jos-2017-spring/inc/x86.h	/^lcr0(uint32_t val)$/;"	f
+lcr3	jos-2017-spring/inc/x86.h	/^lcr3(uint32_t val)$/;"	f
+lcr4	jos-2017-spring/inc/x86.h	/^lcr4(uint32_t val)$/;"	f
+lidt	jos-2017-spring/inc/x86.h	/^lidt(void *p)$/;"	f
+lldt	jos-2017-spring/inc/x86.h	/^lldt(uint16_t sel)$/;"	f
+lpt_putc	jos-2017-spring/kern/console.c	/^lpt_putc(int c)$/;"	f	file:
+ltr	jos-2017-spring/inc/x86.h	/^ltr(uint16_t sel)$/;"	f
+mc146818_read	jos-2017-spring/kern/kclock.c	/^mc146818_read(unsigned reg)$/;"	f
+mc146818_write	jos-2017-spring/kern/kclock.c	/^mc146818_write(unsigned reg, unsigned datum)$/;"	f
+mem_init	jos-2017-spring/kern/pmap.c	/^mem_init(void)$/;"	f
+memcmp	jos-2017-spring/lib/string.c	/^memcmp(const void *v1, const void *v2, size_t n)$/;"	f
+memcpy	jos-2017-spring/lib/string.c	/^memcpy(void *dst, void *src, size_t n)$/;"	f
+memfind	jos-2017-spring/lib/string.c	/^memfind(const void *s, int c, size_t n)$/;"	f
+memmove	jos-2017-spring/lib/string.c	/^memmove(void *dst, const void *src, size_t n)$/;"	f
+memset	jos-2017-spring/lib/string.c	/^memset(void *v, int c, size_t n)$/;"	f
+mon_backtrace	jos-2017-spring/kern/monitor.c	/^mon_backtrace(int argc, char **argv, struct Trapframe *tf)$/;"	f
+mon_help	jos-2017-spring/kern/monitor.c	/^mon_help(int argc, char **argv, struct Trapframe *tf)$/;"	f
+mon_kerninfo	jos-2017-spring/kern/monitor.c	/^mon_kerninfo(int argc, char **argv, struct Trapframe *tf)$/;"	f
+monitor	jos-2017-spring/kern/monitor.c	/^monitor(struct Trapframe *tf)$/;"	f
+n_desc	jos-2017-spring/inc/stab.h	/^	uint16_t n_desc;        \/\/ description field$/;"	m	struct:Stab
+n_other	jos-2017-spring/inc/stab.h	/^	uint8_t n_other;        \/\/ misc info (usually empty)$/;"	m	struct:Stab
+n_strx	jos-2017-spring/inc/stab.h	/^	uint32_t n_strx;	\/\/ index into string table of name$/;"	m	struct:Stab
+n_type	jos-2017-spring/inc/stab.h	/^	uint8_t n_type;         \/\/ type of symbol$/;"	m	struct:Stab
+n_value	jos-2017-spring/inc/stab.h	/^	uintptr_t n_value;	\/\/ value of symbol$/;"	m	struct:Stab
+name	jos-2017-spring/kern/monitor.c	/^	const char *name;$/;"	m	struct:Command	file:
+normalmap	jos-2017-spring/kern/console.c	/^static uint8_t normalmap[256] =$/;"	v	file:
+npages	jos-2017-spring/kern/pmap.c	/^size_t npages;			\/\/ Amount of physical memory (in pages)$/;"	v
+npages_basemem	jos-2017-spring/kern/pmap.c	/^static size_t npages_basemem;	\/\/ Amount of base memory (in pages)$/;"	v	file:
+nvram_read	jos-2017-spring/kern/pmap.c	/^nvram_read(int r)$/;"	f	file:
+off_t	jos-2017-spring/inc/types.h	/^typedef int32_t off_t;$/;"	t
+offsetof	jos-2017-spring/inc/types.h	70;"	d
+outb	jos-2017-spring/inc/x86.h	/^outb(int port, uint8_t data)$/;"	f
+outl	jos-2017-spring/inc/x86.h	/^outl(int port, uint32_t data)$/;"	f
+outsb	jos-2017-spring/inc/x86.h	/^outsb(int port, const void *addr, int cnt)$/;"	f
+outsl	jos-2017-spring/inc/x86.h	/^outsl(int port, const void *addr, int cnt)$/;"	f
+outsw	jos-2017-spring/inc/x86.h	/^outsw(int port, const void *addr, int cnt)$/;"	f
+outw	jos-2017-spring/inc/x86.h	/^outw(int port, uint16_t data)$/;"	f
+overflow_me	jos-2017-spring/kern/monitor.c	/^overflow_me(void)$/;"	f
+p_align	jos-2017-spring/inc/elf.h	/^	uint32_t p_align;$/;"	m	struct:Proghdr
+p_filesz	jos-2017-spring/inc/elf.h	/^	uint32_t p_filesz;$/;"	m	struct:Proghdr
+p_flags	jos-2017-spring/inc/elf.h	/^	uint32_t p_flags;$/;"	m	struct:Proghdr
+p_memsz	jos-2017-spring/inc/elf.h	/^	uint32_t p_memsz;$/;"	m	struct:Proghdr
+p_offset	jos-2017-spring/inc/elf.h	/^	uint32_t p_offset;$/;"	m	struct:Proghdr
+p_pa	jos-2017-spring/inc/elf.h	/^	uint32_t p_pa;$/;"	m	struct:Proghdr
+p_type	jos-2017-spring/inc/elf.h	/^	uint32_t p_type;$/;"	m	struct:Proghdr
+p_va	jos-2017-spring/inc/elf.h	/^	uint32_t p_va;$/;"	m	struct:Proghdr
+pa2page	jos-2017-spring/kern/pmap.h	/^pa2page(physaddr_t pa)$/;"	f
+page2kva	jos-2017-spring/kern/pmap.h	/^page2kva(struct Page *pp)$/;"	f
+page2pa	jos-2017-spring/kern/pmap.h	/^page2pa(struct Page *pp)$/;"	f
+page_alloc	jos-2017-spring/kern/pmap.c	/^page_alloc(int alloc_flags)$/;"	f
+page_decref	jos-2017-spring/kern/pmap.c	/^page_decref(struct Page* pp)$/;"	f
+page_free	jos-2017-spring/kern/pmap.c	/^page_free(struct Page *pp)$/;"	f
+page_free_list	jos-2017-spring/kern/pmap.c	/^static struct Page *page_free_list;	\/\/ Free list of physical pages$/;"	v	typeref:struct:Page	file:
+page_init	jos-2017-spring/kern/pmap.c	/^page_init(void)$/;"	f
+page_insert	jos-2017-spring/kern/pmap.c	/^page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm)$/;"	f
+page_lookup	jos-2017-spring/kern/pmap.c	/^page_lookup(pde_t *pgdir, void *va, pte_t **pte_store)$/;"	f
+page_remove	jos-2017-spring/kern/pmap.c	/^page_remove(pde_t *pgdir, void *va)$/;"	f
+pages	jos-2017-spring/kern/pmap.c	/^struct Page *pages;		\/\/ Physical page state array$/;"	v	typeref:struct:Page
+panic	jos-2017-spring/inc/assert.h	12;"	d
+panicstr	jos-2017-spring/kern/init.c	/^static const char *panicstr;$/;"	v	file:
+pass	jos-2017-spring/grade-functions.sh	/^pass () {$/;"	f
+passfailmsg	jos-2017-spring/grade-functions.sh	/^passfailmsg () {$/;"	f
+pd_base	jos-2017-spring/inc/mmu.h	/^	uint32_t pd_base;		\/\/ Base address$/;"	m	struct:Pseudodesc
+pd_lim	jos-2017-spring/inc/mmu.h	/^	uint16_t pd_lim;		\/\/ Limit$/;"	m	struct:Pseudodesc
+pde_t	jos-2017-spring/inc/memlayout.h	/^typedef uint32_t pde_t;$/;"	t
+pgdir_walk	jos-2017-spring/kern/pmap.c	/^pgdir_walk(pde_t *pgdir, const void *va, int create)$/;"	f
+physaddr_t	jos-2017-spring/inc/types.h	/^typedef uint32_t physaddr_t;$/;"	t
+pp_link	jos-2017-spring/inc/memlayout.h	/^	struct Page *pp_link;$/;"	m	struct:Page	typeref:struct:Page::Page
+pp_ref	jos-2017-spring/inc/memlayout.h	/^	uint16_t pp_ref;$/;"	m	struct:Page
+ppn_t	jos-2017-spring/inc/types.h	/^typedef uint32_t ppn_t;$/;"	t
+printfmt	jos-2017-spring/lib/printfmt.c	/^printfmt(void (*putch)(int, void*), void *putdat, const char *fmt, ...)$/;"	f
+printnum	jos-2017-spring/lib/printfmt.c	/^printnum(void (*putch)(int, void*), void *putdat,$/;"	f	file:
+protcseg	jos-2017-spring/boot/boot.S	/^protcseg:$/;"	l
+pte_t	jos-2017-spring/inc/memlayout.h	/^typedef uint32_t pte_t;$/;"	t
+putch	jos-2017-spring/kern/printf.c	/^putch(int ch, int *cnt)$/;"	f	file:
+rcr0	jos-2017-spring/inc/x86.h	/^rcr0(void)$/;"	f
+rcr2	jos-2017-spring/inc/x86.h	/^rcr2(void)$/;"	f
+rcr3	jos-2017-spring/inc/x86.h	/^rcr3(void)$/;"	f
+rcr4	jos-2017-spring/inc/x86.h	/^rcr4(void)$/;"	f
+read_ebp	jos-2017-spring/inc/x86.h	/^read_ebp(void)$/;"	f
+read_eflags	jos-2017-spring/inc/x86.h	/^read_eflags(void)$/;"	f
+read_eip	jos-2017-spring/kern/monitor.c	/^read_eip()$/;"	f
+read_esp	jos-2017-spring/inc/x86.h	/^read_esp(void)$/;"	f
+read_pretaddr	jos-2017-spring/kern/monitor.c	/^read_pretaddr() {$/;"	f	file:
+read_tsc	jos-2017-spring/inc/x86.h	/^read_tsc(void)$/;"	f
+readdeps	jos-2017-spring/mergedep.pl	/^sub readdeps {$/;"	s
+readline	jos-2017-spring/lib/readline.c	/^readline(const char *prompt)$/;"	f
+readsect	jos-2017-spring/boot/main.c	/^readsect(void *dst, uint32_t offset)$/;"	f
+readseg	jos-2017-spring/boot/main.c	/^readseg(uint32_t pa, uint32_t count, uint32_t offset)$/;"	f
+relocated	jos-2017-spring/kern/entry.S	/^relocated:$/;"	l
+rpos	jos-2017-spring/kern/console.c	/^	uint32_t rpos;$/;"	m	struct:__anon1	file:
+run	jos-2017-spring/grade-functions.sh	/^run () {$/;"	f
+runcmd	jos-2017-spring/kern/monitor.c	/^runcmd(char *buf, struct Trapframe *tf)$/;"	f	file:
+sd_avl	jos-2017-spring/inc/mmu.h	/^	unsigned sd_avl : 1;        \/\/ Unused (available for software use)$/;"	m	struct:Segdesc
+sd_base_15_0	jos-2017-spring/inc/mmu.h	/^	unsigned sd_base_15_0 : 16; \/\/ Low bits of segment base address$/;"	m	struct:Segdesc
+sd_base_23_16	jos-2017-spring/inc/mmu.h	/^	unsigned sd_base_23_16 : 8; \/\/ Middle bits of segment base address$/;"	m	struct:Segdesc
+sd_base_31_24	jos-2017-spring/inc/mmu.h	/^	unsigned sd_base_31_24 : 8; \/\/ High bits of segment base address$/;"	m	struct:Segdesc
+sd_db	jos-2017-spring/inc/mmu.h	/^	unsigned sd_db : 1;         \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:Segdesc
+sd_dpl	jos-2017-spring/inc/mmu.h	/^	unsigned sd_dpl : 2;        \/\/ Descriptor Privilege Level$/;"	m	struct:Segdesc
+sd_g	jos-2017-spring/inc/mmu.h	/^	unsigned sd_g : 1;          \/\/ Granularity: limit scaled by 4K when set$/;"	m	struct:Segdesc
+sd_lim_15_0	jos-2017-spring/inc/mmu.h	/^	unsigned sd_lim_15_0 : 16;  \/\/ Low bits of segment limit$/;"	m	struct:Segdesc
+sd_lim_19_16	jos-2017-spring/inc/mmu.h	/^	unsigned sd_lim_19_16 : 4;  \/\/ High bits of segment limit$/;"	m	struct:Segdesc
+sd_p	jos-2017-spring/inc/mmu.h	/^	unsigned sd_p : 1;          \/\/ Present$/;"	m	struct:Segdesc
+sd_rsv1	jos-2017-spring/inc/mmu.h	/^	unsigned sd_rsv1 : 1;       \/\/ Reserved$/;"	m	struct:Segdesc
+sd_s	jos-2017-spring/inc/mmu.h	/^	unsigned sd_s : 1;          \/\/ 0 = system, 1 = application$/;"	m	struct:Segdesc
+sd_type	jos-2017-spring/inc/mmu.h	/^	unsigned sd_type : 4;       \/\/ Segment type (see STS_ constants)$/;"	m	struct:Segdesc
+serial_exists	jos-2017-spring/kern/console.c	/^static bool serial_exists;$/;"	v	file:
+serial_init	jos-2017-spring/kern/console.c	/^serial_init(void)$/;"	f	file:
+serial_intr	jos-2017-spring/kern/console.c	/^serial_intr(void)$/;"	f
+serial_proc_data	jos-2017-spring/kern/console.c	/^serial_proc_data(void)$/;"	f	file:
+serial_putc	jos-2017-spring/kern/console.c	/^serial_putc(int c)$/;"	f	file:
+sh_addr	jos-2017-spring/inc/elf.h	/^	uint32_t sh_addr;$/;"	m	struct:Secthdr
+sh_addralign	jos-2017-spring/inc/elf.h	/^	uint32_t sh_addralign;$/;"	m	struct:Secthdr
+sh_entsize	jos-2017-spring/inc/elf.h	/^	uint32_t sh_entsize;$/;"	m	struct:Secthdr
+sh_flags	jos-2017-spring/inc/elf.h	/^	uint32_t sh_flags;$/;"	m	struct:Secthdr
+sh_info	jos-2017-spring/inc/elf.h	/^	uint32_t sh_info;$/;"	m	struct:Secthdr
+sh_link	jos-2017-spring/inc/elf.h	/^	uint32_t sh_link;$/;"	m	struct:Secthdr
+sh_name	jos-2017-spring/inc/elf.h	/^	uint32_t sh_name;$/;"	m	struct:Secthdr
+sh_offset	jos-2017-spring/inc/elf.h	/^	uint32_t sh_offset;$/;"	m	struct:Secthdr
+sh_size	jos-2017-spring/inc/elf.h	/^	uint32_t sh_size;$/;"	m	struct:Secthdr
+sh_type	jos-2017-spring/inc/elf.h	/^	uint32_t sh_type;$/;"	m	struct:Secthdr
+shiftcode	jos-2017-spring/kern/console.c	/^static uint8_t shiftcode[256] = $/;"	v	file:
+shiftmap	jos-2017-spring/kern/console.c	/^static uint8_t shiftmap[256] = $/;"	v	file:
+showfinal	jos-2017-spring/grade-functions.sh	/^showfinal () {$/;"	f
+showpart	jos-2017-spring/grade-functions.sh	/^showpart () {$/;"	f
+size_t	jos-2017-spring/inc/types.h	/^typedef uint32_t size_t;$/;"	t
+snprintf	jos-2017-spring/lib/printfmt.c	/^snprintf(char *buf, int n, const char *fmt, ...)$/;"	f
+spin	jos-2017-spring/boot/boot.S	/^spin:$/;"	l
+spin	jos-2017-spring/kern/entry.S	/^spin:	jmp	spin$/;"	l
+sprintbuf	jos-2017-spring/lib/printfmt.c	/^struct sprintbuf {$/;"	s	file:
+sprintputch	jos-2017-spring/lib/printfmt.c	/^sprintputch(int ch, struct sprintbuf *b)$/;"	f	file:
+ssize_t	jos-2017-spring/inc/types.h	/^typedef int32_t ssize_t;$/;"	t
+stab_binsearch	jos-2017-spring/kern/kdebug.c	/^stab_binsearch(const struct Stab *stabs, int *region_left, int *region_right,$/;"	f	file:
+start	jos-2017-spring/boot/boot.S	/^start:$/;"	l
+start_overflow	jos-2017-spring/kern/monitor.c	/^start_overflow(void)$/;"	f
+static_assert	jos-2017-spring/inc/assert.h	18;"	d
+strchr	jos-2017-spring/lib/string.c	/^strchr(const char *s, char c)$/;"	f
+strcmp	jos-2017-spring/lib/string.c	/^strcmp(const char *p, const char *q)$/;"	f
+strcpy	jos-2017-spring/lib/string.c	/^strcpy(char *dst, const char *src)$/;"	f
+strfind	jos-2017-spring/lib/string.c	/^strfind(const char *s, char c)$/;"	f
+strlcpy	jos-2017-spring/lib/string.c	/^strlcpy(char *dst, const char *src, size_t size)$/;"	f
+strlen	jos-2017-spring/lib/string.c	/^strlen(const char *s)$/;"	f
+strncmp	jos-2017-spring/lib/string.c	/^strncmp(const char *p, const char *q, size_t n)$/;"	f
+strncpy	jos-2017-spring/lib/string.c	/^strncpy(char *dst, const char *src, size_t size) {$/;"	f
+strnlen	jos-2017-spring/lib/string.c	/^strnlen(const char *s, size_t size)$/;"	f
+strtol	jos-2017-spring/lib/string.c	/^strtol(const char *s, char **endptr, int base)$/;"	f
+tlb_invalidate	jos-2017-spring/kern/pmap.c	/^tlb_invalidate(pde_t *pgdir, void *va)$/;"	f
+tlbflush	jos-2017-spring/inc/x86.h	/^tlbflush(void)$/;"	f
+togglecode	jos-2017-spring/kern/console.c	/^static uint8_t togglecode[256] = $/;"	v	file:
+ts_cr3	jos-2017-spring/inc/mmu.h	/^	physaddr_t ts_cr3;	\/\/ Page directory base$/;"	m	struct:Taskstate
+ts_cs	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_cs;$/;"	m	struct:Taskstate
+ts_ds	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_ds;$/;"	m	struct:Taskstate
+ts_eax	jos-2017-spring/inc/mmu.h	/^	uint32_t ts_eax;	\/\/ More saved state (registers)$/;"	m	struct:Taskstate
+ts_ebp	jos-2017-spring/inc/mmu.h	/^	uintptr_t ts_ebp;$/;"	m	struct:Taskstate
+ts_ebx	jos-2017-spring/inc/mmu.h	/^	uint32_t ts_ebx;$/;"	m	struct:Taskstate
+ts_ecx	jos-2017-spring/inc/mmu.h	/^	uint32_t ts_ecx;$/;"	m	struct:Taskstate
+ts_edi	jos-2017-spring/inc/mmu.h	/^	uint32_t ts_edi;$/;"	m	struct:Taskstate
+ts_edx	jos-2017-spring/inc/mmu.h	/^	uint32_t ts_edx;$/;"	m	struct:Taskstate
+ts_eflags	jos-2017-spring/inc/mmu.h	/^	uint32_t ts_eflags;$/;"	m	struct:Taskstate
+ts_eip	jos-2017-spring/inc/mmu.h	/^	uintptr_t ts_eip;	\/\/ Saved state from last task switch$/;"	m	struct:Taskstate
+ts_es	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_es;		\/\/ Even more saved state (segment selectors)$/;"	m	struct:Taskstate
+ts_esi	jos-2017-spring/inc/mmu.h	/^	uint32_t ts_esi;$/;"	m	struct:Taskstate
+ts_esp	jos-2017-spring/inc/mmu.h	/^	uintptr_t ts_esp;$/;"	m	struct:Taskstate
+ts_esp0	jos-2017-spring/inc/mmu.h	/^	uintptr_t ts_esp0;	\/\/ Stack pointers and segment selectors$/;"	m	struct:Taskstate
+ts_esp1	jos-2017-spring/inc/mmu.h	/^	uintptr_t ts_esp1;$/;"	m	struct:Taskstate
+ts_esp2	jos-2017-spring/inc/mmu.h	/^	uintptr_t ts_esp2;$/;"	m	struct:Taskstate
+ts_fs	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_fs;$/;"	m	struct:Taskstate
+ts_gs	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_gs;$/;"	m	struct:Taskstate
+ts_iomb	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_iomb;	\/\/ I\/O map base address$/;"	m	struct:Taskstate
+ts_ldt	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_ldt;$/;"	m	struct:Taskstate
+ts_link	jos-2017-spring/inc/mmu.h	/^	uint32_t ts_link;	\/\/ Old ts selector$/;"	m	struct:Taskstate
+ts_padding1	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding1;$/;"	m	struct:Taskstate
+ts_padding10	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding10;$/;"	m	struct:Taskstate
+ts_padding2	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding2;$/;"	m	struct:Taskstate
+ts_padding3	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding3;$/;"	m	struct:Taskstate
+ts_padding4	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding4;$/;"	m	struct:Taskstate
+ts_padding5	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding5;$/;"	m	struct:Taskstate
+ts_padding6	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding6;$/;"	m	struct:Taskstate
+ts_padding7	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding7;$/;"	m	struct:Taskstate
+ts_padding8	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding8;$/;"	m	struct:Taskstate
+ts_padding9	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_padding9;$/;"	m	struct:Taskstate
+ts_ss	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_ss;$/;"	m	struct:Taskstate
+ts_ss0	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_ss0;	\/\/   after an increase in privilege level$/;"	m	struct:Taskstate
+ts_ss1	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_ss1;$/;"	m	struct:Taskstate
+ts_ss2	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_ss2;$/;"	m	struct:Taskstate
+ts_t	jos-2017-spring/inc/mmu.h	/^	uint16_t ts_t;		\/\/ Trap on task switch$/;"	m	struct:Taskstate
+uint16_t	jos-2017-spring/inc/types.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	jos-2017-spring/inc/types.h	/^typedef unsigned int uint32_t;$/;"	t
+uint64_t	jos-2017-spring/inc/types.h	/^typedef unsigned long long uint64_t;$/;"	t
+uint8_t	jos-2017-spring/inc/types.h	/^typedef unsigned char uint8_t;$/;"	t
+uintptr_t	jos-2017-spring/inc/types.h	/^typedef uint32_t uintptr_t;$/;"	t
+va_arg	jos-2017-spring/inc/stdarg.h	10;"	d
+va_end	jos-2017-spring/inc/stdarg.h	12;"	d
+va_list	jos-2017-spring/inc/stdarg.h	/^typedef __builtin_va_list va_list;$/;"	t
+va_start	jos-2017-spring/inc/stdarg.h	8;"	d
+vcprintf	jos-2017-spring/kern/printf.c	/^vcprintf(const char *fmt, va_list ap)$/;"	f
+vprintfmt	jos-2017-spring/lib/printfmt.c	/^vprintfmt(void (*putch)(int, void*), void *putdat, const char *fmt, va_list ap)$/;"	f
+vsnprintf	jos-2017-spring/lib/printfmt.c	/^vsnprintf(char *buf, int n, const char *fmt, va_list ap)$/;"	f
+waitdisk	jos-2017-spring/boot/main.c	/^waitdisk(void)$/;"	f
+warn	jos-2017-spring/inc/assert.h	11;"	d
+wpos	jos-2017-spring/kern/console.c	/^	uint32_t wpos;$/;"	m	struct:__anon1	file:
+write_eflags	jos-2017-spring/inc/x86.h	/^write_eflags(uint32_t eflags)$/;"	f
