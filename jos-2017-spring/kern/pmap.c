@@ -380,12 +380,11 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 	pde_t * pde;
 	pte_t * pt;
 	pde = pgdir + PDX(va);
-	cprintf("the pgdir is: %x, and the *pgdir is :%x\n", pgdir, *pgdir);
-	cprintf("the pde is: %x, and the *pde is :%x\n", pde, *pde);
+	// cprintf("the pgdir is: %x, and the *pgdir is :%x\n", pgdir, *pgdir);
+	// cprintf("the pde is: %x, and the *pde is :%x\n", pde, *pde);
 
 	if((*pde) & PTE_P){
 	  pt = KADDR(PTE_ADDR(*pde));
-	  //cprintf("the pt is : %x\n", pt);
 	}
 
 	else{
@@ -398,7 +397,7 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 		}
 		else return NULL;
 	}
-	cprintf("the pt is : %x, and the *pt is %x\n", pt, *pt);
+	// cprintf("the pt is : %x, and the *pt is %x\n", pt, *pt);
 	return pt+PTX(va);
 }
 
