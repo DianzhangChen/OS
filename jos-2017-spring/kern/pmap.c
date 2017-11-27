@@ -377,25 +377,48 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 	//my note:
 	//pgdir is a *virtual addr*;
 	//the return of pgdir_walk is a *virtual addr* pointer to the sceondery page table entry;
-	pde_t *pde = NULL;
-	pte_t *pgtable = NULL;
+//	pde_t *pde = NULL;
+//	pte_t *pgtable = NULL;
+//
+//	struct Page *pp;
+//	pde = &pgdir[PDX(va)];
+//	if(*pde & PTE_P)
+//	{
+//		pgtable = (KADDR(PTE_ADDR(*pde)));
+//	}
+//	else
+//	{
+//		if(!create || !(pp=page_alloc(ALLOC_ZERO)) || !(pgtable = (pte_t *)page2kva(pp))){
+//			return NULL;
+//		}
+//		pp->pp_ref++;
+//		*pde = PADDR(pgtable) | PTE_P | PTE_W | PTE_U;
+//	}
+//	return &pgtable[PTX(va)];
+	pde_t * pde;
+	pte_t * pt;
+	pde = pgdir + PDX(va);
+	cprintf("the pgdir is: %x\n, and the *pgdir is :%x\n", pgdir, *pgdir);
 
-	struct Page *pp;
-	pde = &pgdir[PDX(va)];
-	if(*pde & PTE_P)
-	{
-		pgtable = (KADDR(PTE_ADDR(*pde)));
+	cprintf("the pde is: %x\n, and the *pde is :%x\n", pde, *pde);
+
+	if((*pde) & PTE_P){
+	  pt = KADDR(PTE_ADDR(*pde));
+	  //cprintf("the pt is : %x\n", pt);
 	}
-	else
-	{
-		if(!create || !(pp=page_alloc(ALLOC_ZERO)) || !(pgtable = (pte_t *)page2kva(pp))){
-			return NULL;
+
+	else{
+		if(create){
+			struct Page *pp = page_alloc(ALLOC_ZERO);
+			if(pp==NULL) return NULL;
+			pt = page2kva(pp);
+			pp->pp_ref++;
+			*pde = PADDR(pt) | PTE_P | PTE_W | PTE_U;
 		}
-		pp->pp_ref++;
-		*pde = PADDR(pgtable) | PTE_P | PTE_W | PTE_U;
+		else return NULL;
 	}
-	return &pgtable[PTX(va)];
-
+	cprintf("the pt is : %x\n", pt);
+	return pt+PTX(va);
 }
 
 //
