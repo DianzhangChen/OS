@@ -68,6 +68,8 @@ trap_init(void)
 
 	// Per-CPU setup 
 	trap_init_percpu();
+	
+	cprintf("afer trap_init!\n");               ////////////////////////////////////////////////////////
 }
 
 // Initialize and load the per-CPU TSS and IDT

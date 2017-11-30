@@ -32,7 +32,9 @@ i386_init(void)
 	mem_init();
 
 	// Lab 3 user environment initialization functions
+	cprintf("before env_init!\n");               ////////////////////////////////////////////////////////
 	env_init();
+	cprintf("after env_init!\n");               ////////////////////////////////////////////////////////
 	trap_init();
 
 #if defined(TEST)
@@ -44,6 +46,8 @@ i386_init(void)
 #endif // TEST*
 
 	// We only have one user environment for now, so just run it.
+	
+	cprintf("before env_run!\n");               ////////////////////////////////////////////////////////
 	env_run(&envs[0]);
 }
 
