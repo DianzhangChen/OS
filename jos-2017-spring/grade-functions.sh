@@ -39,6 +39,10 @@ run () {
 	fi
 
 	qemucommand="$qemu -nographic $qemuopts -serial file:jos.out -monitor null -no-reboot $qemuextra"
+
+	###################################333
+	# echo cdz:qemucommand= $qemucommand
+
 	if $verbose; then
 		echo $qemucommand 1>&2
 	fi
@@ -134,6 +138,9 @@ fail () {
 
 # Usage: runtest <tagname> <defs> <check fn> <check args...>
 runtest () {
+	# echo chendianzhang:$1
+	# echo CDz2:$2
+	# echo CDz3:$@
 	perl -e "print '$1: '"
 	rm -f obj/kern/init.o obj/kern/kernel obj/kern/kernel.img
 	[ "$preservefs" = y ] || rm -f obj/fs/fs.img
@@ -173,6 +180,7 @@ runtest () {
 		shift
 		check=$1
 		shift
+		# echo CDZ check command:  $check "$@"
 		$check "$@"
 	fi
 }

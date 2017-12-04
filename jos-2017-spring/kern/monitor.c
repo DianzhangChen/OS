@@ -25,12 +25,62 @@ struct Command {
 static struct Command commands[] = {
 	{ "help", "Display this list of commands", mon_help },
 	{ "kerninfo", "Display information about the kernel", mon_kerninfo },
+	{ "c", "GDB-style instruction continue.", mon_c },
+	{ "si", "GDB-style instruction stepi", mon_si },
+	{ "x", "GDB-style instruction examine", mon_x },
 };
 #define NCOMMANDS (sizeof(commands)/sizeof(commands[0]))
 
 unsigned read_eip();
 
 /***** Implementations of basic kernel monitor commands *****/
+
+//my lab3 code 
+int mon_c(int argc, char **argv, struct Trapframe *tf){
+	if(tf){
+	  tf->tf_eflags &= ~FL_TF;
+	  return -1;
+	}
+	cprintf("not support continue in non-gdb mode\n");
+	return 0;
+}
+
+int mon_si(int argc, char **argv, struct Trapframe *tf){
+	if(tf){
+		tf->tf_eflags |= FL_TF;
+		struct Eipdebuginfo info;
+		debuginfo_eip((uintptr_t)tf->tf_eip, &info);
+		// cprintf("cdz: the eip_line= %d\n", info.eip_line);
+		cprintf("tf_eip=%08x\n%s:%u %.*s+%u\n",
+					tf->tf_eip,
+					info.eip_file,
+					info.eip_line,
+					info.eip_fn_namelen,
+					info.eip_fn_name,
+					tf->tf_eip-(uint32_t)info.eip_fn_addr
+					);
+		return -1;
+	}
+	cprintf("not support stepi in non-gdb mode\n");
+	return 0;
+}
+
+int mon_x(int argc, char **argv, struct Trapframe *tf){
+	if(tf){
+		if(argc != 2){
+			cprintf("Please enter the address");
+			return 0;
+		}
+		uintptr_t examine_address = (uintptr_t)strtol(argv[1], NULL, 16);
+		uint32_t examine_value;
+		__asm __volatile("movl (%0), %0" : "=r" (examine_value) : "r" (examine_address));
+		cprintf("%d\n", examine_value);
+		return 0;
+	}
+	cprintf("not support stepi in non_gdb mode\n");
+	return 0;
+}
+
 
 int
 mon_help(int argc, char **argv, struct Trapframe *tf)

@@ -207,7 +207,7 @@ run-%-nox-gdb: .gdbinit
 
 run-%-gdb: .gdbinit
 	$(V)$(MAKE) --no-print-directory prep-$*
-	$(QEMU) $(QEMUOPTS) -S
+	$(QEMU) $(QEMUOPTS) -S -s -p 26000
 
 run-%-nox: .gdbinit
 	$(V)$(MAKE) --no-print-directory prep-$*

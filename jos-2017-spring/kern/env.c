@@ -278,7 +278,7 @@ env_alloc(struct Env **newenv_store, envid_t parent_id)
 // Pages should be writable by user and kernel.
 // Panic if any allocation attempt fails.
 //
-static void
+void
 region_alloc(struct Env *e, void *va, size_t len)
 {
 	// LAB 3: Your code here.
@@ -299,14 +299,14 @@ region_alloc(struct Env *e, void *va, size_t len)
 //		va += PGSIZE;
 //	}
 //	
-	uintptr_t  va_start = (uintptr_t)ROUNDDOWN(va, PGSIZE);
-	uintptr_t  va_end = (uintptr_t)ROUNDUP(va+len, PGSIZE);
+	uintptr_t  va_start = ROUNDDOWN((uintptr_t)va, PGSIZE);
+	uintptr_t  va_end = ROUNDUP((uintptr_t)(va)+len, PGSIZE);
 	uintptr_t i;
 	for(i=va_start; i<va_end; i+=PGSIZE){
 		struct Page* pg = page_alloc(0);
 		if(!pg)
 		  panic("region_alloc failed!\n");
-		page_insert(e->env_pgdir, pg, (void *)i, PTE_W | PTE_U);
+		page_insert(e->env_pgdir, pg, (void *)i, PTE_W | PTE_U | PTE_P);
 	}
 //
 	// Hint: It is easier to use region_alloc if the caller can pass
@@ -398,6 +398,7 @@ load_icode(struct Env *e, uint8_t *binary, size_t size)
 
 	// LAB 3: Your code here.
 	region_alloc(e, (void *)(USTACKTOP-PGSIZE), PGSIZE);
+	e->env_heap_bottom = (uintptr_t)ROUNDDOWN(USTACKTOP-PGSIZE, PGSIZE);
 }
 
 //

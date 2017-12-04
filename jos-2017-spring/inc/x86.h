@@ -1,6 +1,25 @@
 #ifndef JOS_INC_X86_H
 #define JOS_INC_X86_H
 
+
+// my syscall add
+#define rdmsr(msr, val1, val2) \
+	__asm__ __volatile__("rdmsr" \
+				: "=a"(val1), "=d"(val2) \
+				: "c"(msr))
+
+
+
+
+#define wrmsr(msr, val1, val2) \
+	__asm__ __volatile__("wrmsr" \
+				: \
+				: "c"(msr), "a"(val1), "d"(val2))
+
+
+
+
+
 #include <inc/types.h>
 
 static __inline void breakpoint(void) __attribute__((always_inline));
