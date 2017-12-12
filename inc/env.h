@@ -32,6 +32,7 @@ typedef int32_t envid_t;
 // Values of env_status in struct Env
 enum {
 	ENV_FREE = 0,
+	ENV_DYING,
 	ENV_RUNNABLE,
 	ENV_RUNNING,
 	ENV_NOT_RUNNABLE
@@ -57,6 +58,20 @@ struct Env {
 
 	// Address space
 	pde_t *env_pgdir;		// Kernel virtual address of page dir
+	int env_cpunum;			// The CPU that the env is running on
+
+	// Exception handling
+	void *env_pgfault_upcall;	// Page fault upcall entry point
+
+	// Lab 4 IPC
+	bool env_ipc_recving;		// Env is blocked receiving
+	void *env_ipc_dstva;		// VA at which to map received page
+	uint32_t env_ipc_value;		// Data value sent to us
+	envid_t env_ipc_from;		// envid of the sender
+	int env_ipc_perm;		// Perm of page mapping received
+
+	// LAB3: might need code here for implementation of sbrk
+
 };
 
 #endif // !JOS_INC_ENV_H
