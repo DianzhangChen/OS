@@ -334,7 +334,7 @@ page_init(void)
 	// free pages!
 	
 	size_t i;
-	for(i=1; i<npages_basemem; i++){
+	for(i=1; i<npages_basemem && i!= MPENTRY_PADDR/PGSIZE; i++){
 		pages[i].pp_ref = 0;
 		pages[i].pp_link = page_free_list;
 		page_free_list = &pages[i];
