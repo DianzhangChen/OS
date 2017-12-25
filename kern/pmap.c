@@ -182,10 +182,12 @@ mem_init(void)
 	// or page_insert
 	page_init();
 
+	cprintf("cdz: before check_page_free_list(1)\n");
 	check_page_free_list(1);
+	cprintf("cdz: before check_page_alloc()\n");
 	check_page_alloc();
+	cprintf("cdz: before check_page()\n");
 	check_page();
-	//check_n_pages();
 	//check_realloc_npages();
 
 	//////////////////////////////////////////////////////////////////////
@@ -199,6 +201,7 @@ mem_init(void)
 	//    - pages itself -- kernel RW, user NONE
 	// Your code goes here:
 	//
+	cprintf("cdz: before 1\n");
 	boot_map_region(kern_pgdir, UPAGES, ROUNDUP(npages *page_size, PGSIZE),
 				PADDR(pages), PTE_P | PTE_U);
 
@@ -209,6 +212,7 @@ mem_init(void)
 	//    - the new image at UENVS  -- kernel R, user R
 	//    - envs itself -- kernel RW, user NONE
 	// LAB 3: Your code here.
+	cprintf("cdz: before 2\n");
 	boot_map_region(kern_pgdir, UENVS, ROUNDUP(NENV*env_size, PGSIZE),
 				PADDR(envs), PTE_P | PTE_U);
 
@@ -223,6 +227,7 @@ mem_init(void)
 	//       overwrite memory.  Known as a "guard page".
 	//     Permissions: kernel RW, user NONE
 	// Your code goes here:
+	cprintf("cdz: before 3\n");
 	boot_map_region(kern_pgdir, KSTACKTOP-KSTKSIZE,
 				KSTKSIZE, PADDR(bootstack),
 				PTE_P | PTE_W);
@@ -233,13 +238,17 @@ mem_init(void)
 	// We might not have 2^32 - KERNBASE bytes of physical memory, but
 	// we just set up the mapping anyway.
 	// Permissions: kernel RW, user NONE
+	cprintf("cdz: before 4\n");
 	// Your code goes here:
-	boot_map_region(kern_pgdir, KERNBASE, ~KERNBASE+1,
+	boot_map_region(kern_pgdir, KERNBASE, -KERNBASE,
 				0, PTE_P | PTE_W);
 
+	cprintf("cdz: after 4\n");
 	// Initialize the SMP-related parts of the memory map
+	cprintf("cdz: before mem_init_mp()\n");
 	mem_init_mp();
 
+	cprintf("cdz: after mem_init_mp()\n");
 	// Check that the initial page directory has been set up correctly.
 	check_kern_pgdir();
 
@@ -293,6 +302,11 @@ mem_init_mp(void)
 	//     Permissions: kernel RW, user NONE
 	//
 	// LAB 4: Your code here:
+	int i;
+	for(i=0; i<NCPU; i++){
+		uint32_t kstacktop_i = KSTACKTOP - i * (KSTKSIZE + KSTKGAP);
+		boot_map_region(kern_pgdir, kstacktop_i - KSTKSIZE, KSTKSIZE, PADDR(percpu_kstacks[i]), PTE_W | PTE_P);
+	}
 
 }
 
@@ -524,16 +538,27 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 static void
 boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm)
 {
-	// Fill this function in
-	uint32_t n = size/PGSIZE;
-	uint32_t i;
-	pte_t * pte;
-	for(i=0; i<n; i++){
-		pte = pgdir_walk(pgdir, (void *)va, 1);
-		*pte = pa | perm | PTE_P;
-		va += PGSIZE;
-		pa += PGSIZE;
+	cprintf("cdz: the size=%d\n", size);
+	size_t i;
+	for(i=0; i<size; i+=PGSIZE){
+		if(i>255800000 || i<=131072){
+			cprintf("cdz: the size=%d the i=%d\n", size, i);
+		}
+		pte_t * pte = pgdir_walk(pgdir, (void *)(va + i), 1);
+		*pte = (pa+i) | perm | PTE_P;
 	}
+//	uint32_t n = size/PGSIZE;
+//	uint32_t i;
+//	pte_t * pte;
+//
+//	for(i=0; i<n; i++){
+//		if(n <= (i+1))
+//		  cprintf("cdz: soon\n");
+//		pte = pgdir_walk(pgdir, (void *)va, 1);
+//		*pte = pa | perm | PTE_P;
+//		va += PGSIZE;
+//		pa += PGSIZE;
+//	}
 }
 
 //
@@ -546,11 +571,11 @@ boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm
 // mapped pages.
 //
 // Hint: the TA solution uses pgdir_walk
-static void
-boot_map_region_large(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm)
-{
-	// Fill this function in
-}
+//static void
+//boot_map_region_large(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm)
+//{
+//	// Fill this function in
+//}
 
 //
 // Map the physical page 'pp' at virtual address 'va'.
