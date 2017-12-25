@@ -489,6 +489,8 @@ boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm
 	uint32_t i;
 	pte_t * pte;
 	for(i=0; i<n; i++){
+		if(i>=60000||i<5)
+		  cprintf("cdz: n=%d, i=%d\n", n, i);
 		pte = pgdir_walk(pgdir, (void *)va, 1);
 		*pte = pa | perm | PTE_P;
 		va += PGSIZE;
