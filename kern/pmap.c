@@ -12,6 +12,9 @@
 #include <kern/env.h>
 #include <kern/cpu.h>
 
+// cdz's debug info
+int cdz_flag = 0;
+
 // These variables are set by i386_detect_memory()
 size_t npages;			// Amount of physical memory (in pages)
 static size_t npages_basemem;	// Amount of base memory (in pages)
@@ -348,10 +351,13 @@ page_init(void)
 	// free pages!
 	
 	size_t i;
-	for(i=1; i<npages_basemem && i!= MPENTRY_PADDR/PGSIZE; i++){
-		pages[i].pp_ref = 0;
-		pages[i].pp_link = page_free_list;
-		page_free_list = &pages[i];
+	//for(i=1; i<npages_basemem && i!= MPENTRY_PADDR/PGSIZE; i++){
+	for(i=1; i<npages_basemem; i++){
+		if(i!=MPENTRY_PADDR/PGSIZE){
+			pages[i].pp_ref = 0;
+			pages[i].pp_link = page_free_list;
+			page_free_list = &pages[i];
+		}
 	}
 	
 	for(i=PGNUM(PADDR(boot_alloc(0))); i<npages; i++){
@@ -385,16 +391,28 @@ page_alloc(int alloc_flags)
 	// Fill this function in
 	
 	struct Page * alloc_page = NULL;
+			if(cdz_flag == 1)
+				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);
 	if(page_free_list){
+			if(cdz_flag == 1)
+				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);
 		alloc_page = page_free_list;
 		page_free_list = page_free_list->pp_link;
 		//alloc_page.pp_ref = 0;
 		alloc_page->pp_link = NULL;
 
 		if(alloc_flags &  ALLOC_ZERO){
+			if(cdz_flag == 1){
+				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);  
+				cprintf("cdz: page2kva(alloc_page): %x, pages:%x, alloc_page:%x\n",page2kva(alloc_page), pages, alloc_page);
+			}
 			memset(page2kva(alloc_page), 0, PGSIZE);
+			if(cdz_flag == 1)
+				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);
 		}
 	}
+			if(cdz_flag == 1)
+				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);
 	return alloc_page;
 
 }
@@ -506,17 +524,28 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 	pde = pgdir + PDX(va);
 	// cprintf("the pgdir is: %x, and the *pgdir is :%x\n", pgdir, *pgdir);
 	// cprintf("the pde is: %x, and the *pde is :%x\n", pde, *pde);
+	
+	size_t i = ((size_t)va - KERNBASE)/PGSIZE;
 
 	if((*pde) & PTE_P){
+		if(cdz_flag == 1)
+		  cprintf("cdz:file:%s line:%d, i= %d\n",__FILE__, __LINE__, i);
 	  pt = KADDR(PTE_ADDR(*pde));
+		if(cdz_flag == 1)
+		  cprintf("cdz:file:%s line:%d, i= %d\n",__FILE__, __LINE__, i);
 	}
 
 	else{
+		// cprintf("cdz:%s %d\n", __FILE__, __LINE__);
 		if(create){
+			if(cdz_flag == 1)
+				cprintf("cdz:file:%s line:%d, i= %d\n",__FILE__, __LINE__, i);
 			struct Page *pp = page_alloc(ALLOC_ZERO);
 			if(pp==NULL) return NULL;
+			if(cdz_flag == 1)
+				cprintf("cdz:file:%s line:%d, i= %d\n",__FILE__, __LINE__, i);
 			pt = page2kva(pp);
-			pp->pp_ref++;
+			pp->pp_ref=1;
 			*pde = PADDR(pt) | PTE_P | PTE_W | PTE_U;
 		}
 		else return NULL;
@@ -538,27 +567,39 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 static void
 boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm)
 {
-	cprintf("cdz: the size=%d\n", size);
-	size_t i;
-	for(i=0; i<size; i+=PGSIZE){
-		if(i>255800000 || i<=131072){
-			cprintf("cdz: the size=%d the i=%d\n", size, i);
-		}
-		pte_t * pte = pgdir_walk(pgdir, (void *)(va + i), 1);
-		*pte = (pa+i) | perm | PTE_P;
-	}
-//	uint32_t n = size/PGSIZE;
-//	uint32_t i;
-//	pte_t * pte;
-//
-//	for(i=0; i<n; i++){
-//		if(n <= (i+1))
-//		  cprintf("cdz: soon\n");
-//		pte = pgdir_walk(pgdir, (void *)va, 1);
-//		*pte = pa | perm | PTE_P;
-//		va += PGSIZE;
-//		pa += PGSIZE;
+//	cprintf("cdz: the size=%d\n", size);
+//	size_t i;
+//	for(i=0; i<size; i+=PGSIZE){
+//		if(i>255800000 || i<=131072){
+//			cprintf("cdz: the size=%d the i=%d\n", size, i);
+//		}
+//		pte_t * pte = pgdir_walk(pgdir, (void *)(va + i), 1);
+//		*pte = (pa+i) | perm | PTE_P;
 //	}
+	ROUNDUP(size, PGSIZE);
+	uint32_t n = size/PGSIZE;
+	uint32_t i;
+	pte_t * pte;
+
+	for(i=0; i<n; i++){
+		//if(i >= 60000||i<5)
+		if(i >= 61000){
+		  cprintf("cdz: n=%d %d, i= %d\n", n, __LINE__, i);
+		  cdz_flag = 1;
+		}
+		pte = pgdir_walk(pgdir, (void *)va, 1);
+		if(pte==NULL) return;
+		if(i >= 61000)
+		  cprintf("cdz: n=%d %d, i= %d\n", n, __LINE__, i);
+		*pte = pa | perm | PTE_P;
+		if(i >= 61000)
+		  cprintf("cdz: n=%d %d, i= %d\n", n, __LINE__, i);
+		va += PGSIZE;
+		if(i >= 61000)
+		  cprintf("cdz: n=%d %d, i= %d\n", n, __LINE__, i);
+		pa += PGSIZE;
+		cdz_flag = 0;
+	}
 }
 
 //
