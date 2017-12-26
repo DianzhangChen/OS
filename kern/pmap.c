@@ -185,11 +185,8 @@ mem_init(void)
 	// or page_insert
 	page_init();
 
-	cprintf("cdz: before check_page_free_list(1)\n");
 	check_page_free_list(1);
-	cprintf("cdz: before check_page_alloc()\n");
 	check_page_alloc();
-	cprintf("cdz: before check_page()\n");
 	check_page();
 	//check_realloc_npages();
 
@@ -204,7 +201,6 @@ mem_init(void)
 	//    - pages itself -- kernel RW, user NONE
 	// Your code goes here:
 	//
-	cprintf("cdz: before 1\n");
 	boot_map_region(kern_pgdir, UPAGES, ROUNDUP(npages *page_size, PGSIZE),
 				PADDR(pages), PTE_P | PTE_U);
 
@@ -215,7 +211,6 @@ mem_init(void)
 	//    - the new image at UENVS  -- kernel R, user R
 	//    - envs itself -- kernel RW, user NONE
 	// LAB 3: Your code here.
-	cprintf("cdz: before 2\n");
 	boot_map_region(kern_pgdir, UENVS, ROUNDUP(NENV*env_size, PGSIZE),
 				PADDR(envs), PTE_P | PTE_U);
 
@@ -230,7 +225,6 @@ mem_init(void)
 	//       overwrite memory.  Known as a "guard page".
 	//     Permissions: kernel RW, user NONE
 	// Your code goes here:
-	cprintf("cdz: before 3\n");
 	boot_map_region(kern_pgdir, KSTACKTOP-KSTKSIZE,
 				KSTKSIZE, PADDR(bootstack),
 				PTE_P | PTE_W);
@@ -241,17 +235,13 @@ mem_init(void)
 	// We might not have 2^32 - KERNBASE bytes of physical memory, but
 	// we just set up the mapping anyway.
 	// Permissions: kernel RW, user NONE
-	cprintf("cdz: before 4\n");
 	// Your code goes here:
 	boot_map_region(kern_pgdir, KERNBASE, -KERNBASE,
 				0, PTE_P | PTE_W);
 
-	cprintf("cdz: after 4\n");
 	// Initialize the SMP-related parts of the memory map
-	cprintf("cdz: before mem_init_mp()\n");
 	mem_init_mp();
 
-	cprintf("cdz: after mem_init_mp()\n");
 	// Check that the initial page directory has been set up correctly.
 	check_kern_pgdir();
 
@@ -391,28 +381,16 @@ page_alloc(int alloc_flags)
 	// Fill this function in
 	
 	struct Page * alloc_page = NULL;
-			if(cdz_flag == 1)
-				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);
 	if(page_free_list){
-			if(cdz_flag == 1)
-				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);
 		alloc_page = page_free_list;
 		page_free_list = page_free_list->pp_link;
 		//alloc_page.pp_ref = 0;
 		alloc_page->pp_link = NULL;
 
 		if(alloc_flags &  ALLOC_ZERO){
-			if(cdz_flag == 1){
-				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);  
-				cprintf("cdz: page2kva(alloc_page): %x, pages:%x, alloc_page:%x\n",page2kva(alloc_page), pages, alloc_page);
-			}
 			memset(page2kva(alloc_page), 0, PGSIZE);
-			if(cdz_flag == 1)
-				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);
 		}
 	}
-			if(cdz_flag == 1)
-				cprintf("cdz:file:%s func:%s line:%d\n",__FILE__, __FUNCTION__ ,__LINE__);
 	return alloc_page;
 
 }
@@ -528,22 +506,14 @@ pgdir_walk(pde_t *pgdir, const void *va, int create)
 	size_t i = ((size_t)va - KERNBASE)/PGSIZE;
 
 	if((*pde) & PTE_P){
-		if(cdz_flag == 1)
-		  cprintf("cdz:file:%s line:%d, i= %d\n",__FILE__, __LINE__, i);
 	  pt = KADDR(PTE_ADDR(*pde));
-		if(cdz_flag == 1)
-		  cprintf("cdz:file:%s line:%d, i= %d\n",__FILE__, __LINE__, i);
 	}
 
 	else{
 		// cprintf("cdz:%s %d\n", __FILE__, __LINE__);
 		if(create){
-			if(cdz_flag == 1)
-				cprintf("cdz:file:%s line:%d, i= %d\n",__FILE__, __LINE__, i);
 			struct Page *pp = page_alloc(ALLOC_ZERO);
 			if(pp==NULL) return NULL;
-			if(cdz_flag == 1)
-				cprintf("cdz:file:%s line:%d, i= %d\n",__FILE__, __LINE__, i);
 			pt = page2kva(pp);
 			pp->pp_ref=1;
 			*pde = PADDR(pt) | PTE_P | PTE_W | PTE_U;
@@ -583,20 +553,10 @@ boot_map_region(pde_t *pgdir, uintptr_t va, size_t size, physaddr_t pa, int perm
 
 	for(i=0; i<n; i++){
 		//if(i >= 60000||i<5)
-		if(i >= 61000){
-		  cprintf("cdz: n=%d %d, i= %d\n", n, __LINE__, i);
-		  cdz_flag = 1;
-		}
 		pte = pgdir_walk(pgdir, (void *)va, 1);
 		if(pte==NULL) return;
-		if(i >= 61000)
-		  cprintf("cdz: n=%d %d, i= %d\n", n, __LINE__, i);
 		*pte = pa | perm | PTE_P;
-		if(i >= 61000)
-		  cprintf("cdz: n=%d %d, i= %d\n", n, __LINE__, i);
 		va += PGSIZE;
-		if(i >= 61000)
-		  cprintf("cdz: n=%d %d, i= %d\n", n, __LINE__, i);
 		pa += PGSIZE;
 		cdz_flag = 0;
 	}
