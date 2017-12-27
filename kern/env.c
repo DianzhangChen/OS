@@ -571,6 +571,7 @@ env_run(struct Env *e)
 		lcr3(PADDR(curenv->env_pgdir));
 	}
 	cprintf("hello before context switch!\n");
+	unlock_kernel();
 	env_pop_tf(&curenv->env_tf);
 	
 	panic("env_run not yet implemented");
