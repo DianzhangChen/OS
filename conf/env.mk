@@ -17,4 +17,4 @@ V = @
 # If the makefile cannot find your QEMU binary, uncomment the
 # following line and set it to the full path to QEMU.
 #
-# QEMU=
+QEMU=/home/oslab/qemu-1.5.2/dist/bin/qemu-system-i386

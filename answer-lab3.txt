@@ -1,0 +1,18 @@
+Question1
+需要设置不同的handler函数来处理不同的exception/interupt是因为不同的exception/interupt
+需要不同的处理方式来处理，因此不太适合用统一的方式来处理所有的异常。比如说有的异常
+处理后不返回被中断的指令，而有的中断只是为了IO处理，仍然需要返回被中断的指令继续执行。
+
+Question2
+Trap13并不是softint程序运行的直接结果，而是因为softint程序处于用户态却调用了不属于它
+所在的特权级的指令int $14，所以会造成General Protection Exception，即trap13.
+
+Question3
+之所以会造成General Protection Exception是因为BRKPT的权限设置问题，当当前执行的程序
+跳转到IDT表中的breakpoint exception的表项所指向的程序继续执行时，要求当前运行程序的
+CPL，RPL的最大值需要小于等于DPL，否则就是优先级低的代码试图去访问优先级高的代码，
+就会触发general protection exception，必须把BRKPT的权限设置为3，才能在用户态调用相关代码，
+如果像其它异常处理一样仍设置权限为0，就会触发General Protection Exception
+
+Question4
+为了保护系统，避免优先级低的代码访问调用优先级高的代码，带来不必要的危险。

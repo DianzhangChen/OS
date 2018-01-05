@@ -131,6 +131,7 @@ CPUS ?= 1
 QEMUOPTS = -hda $(OBJDIR)/kern/kernel.img -serial mon:stdio -gdb tcp::$(GDBPORT)
 QEMUOPTS += $(shell if $(QEMU) -nographic -help | grep -q '^-D '; then echo '-D qemu.log'; fi)
 
+
 IMAGES = $(OBJDIR)/kern/kernel.img
 QEMUOPTS += -smp $(CPUS)
 QEMUOPTS += $(QEMUEXTRA)
@@ -166,6 +167,7 @@ print-qemu:
 print-gdbport:
 	@echo $(GDBPORT)
 
+
 # For deleting the build
 clean:
 	rm -rf $(OBJDIR) .gdbinit jos.in qemu.log
@@ -188,6 +190,7 @@ grade: $(LABSETUP)grade-lab$(LAB).sh
 	sh $(LABSETUP)grade-lab$(LAB).sh $(GRADEFLAGS)
 
 handin: tarball
+
 	@echo Please upload lab$(LAB)-xxx.tar.gz to the ftp as before. Thanks!
 	@echo Remeber rename the $(LAB)-handin.tar.gz with your student ID.
 
