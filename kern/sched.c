@@ -29,6 +29,25 @@ sched_yield(void)
 	// below to switch to this CPU's idle environment.
 
 	// LAB 4: Your code here.
+	uint32_t env_id;
+	if(curenv != NULL)
+	{
+		env_id = ENVX(curenv->env_id);
+		i = (env_id + 1)%NENV;
+
+		while(i!=env_id)
+		{
+			if(envs[i].env_status == ENV_RUNNABLE && envs[i].env_type != ENV_TYPE_IDLE)
+			{
+				env_run(&envs[i]);
+			}
+			i = (i+1)%NENV;
+		}
+		if(curenv->env_status == ENV_RUNNING)
+		{
+			env_run(curenv);
+		}
+	}
 
 	// For debugging and testing purposes, if there are no
 	// runnable environments other than the idle environments,

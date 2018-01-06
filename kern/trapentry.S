@@ -75,6 +75,7 @@ sysenter_handler:
 /*
  * Lab 3: Your code here for system call handling
  */
+/*
     pushl %esi
     pushl %edi
     pushl %ebx
@@ -91,8 +92,30 @@ sysenter_handler:
     movl %ebp, %ecx
     movl (%ebp), %edx
     sysexit
+*/
 
-
+	pushl $GD_UD | 3
+	pushl %ebp
+	pushfl
+	pushl $GD_UT | 3
+	pushl %esi
+	pushl $0
+	pushl $0
+	pushl %ds
+	pushl %es
+	pushal
+	movw $GD_KD, %ax
+	movw %ax, %ds
+	movw %ax, %es
+	pushl %esp
+	call syscall_controller
+	popl %esp
+	popal
+	popl %es
+	popl %ds
+	movl %ebp, %ecx
+	movl %esi, %edx
+	sysexit
 
 /*
  * Lab 3: Your code here for _alltraps
