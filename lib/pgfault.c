@@ -33,7 +33,9 @@ set_pgfault_handler(void (*handler)(struct UTrapframe *utf))
 		{
 			panic("set_pgfault_handler: %e\n", r);
 		}
+
 		sys_env_set_pgfault_upcall(0, _pgfault_upcall);
+		
 		// panic("set_pgfault_handler not implemented");
 	}
 
