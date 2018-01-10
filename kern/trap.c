@@ -94,6 +94,24 @@ trap_init(void)
 
   extern void ENTRY_SYSCALL();/* 48 system call*/
 
+  extern void ENTRY_IRQ_0		();
+  extern void ENTRY_IRQ_1		();
+  extern void ENTRY_IRQ_2		();
+  extern void ENTRY_IRQ_3		();
+  extern void ENTRY_IRQ_4		();	
+  extern void ENTRY_IRQ_5		();
+  extern void ENTRY_IRQ_6		();
+  extern void ENTRY_IRQ_7		();
+  extern void ENTRY_IRQ_8		();
+  extern void ENTRY_IRQ_9		();
+  extern void ENTRY_IRQ_10		();
+  extern void ENTRY_IRQ_11		();
+  extern void ENTRY_IRQ_12		();
+  extern void ENTRY_IRQ_13		();
+  extern void ENTRY_IRQ_14		();
+  extern void ENTRY_IRQ_15		();
+ 
+
   SETGATE(idt[T_DIVIDE ],0,GD_KT,ENTRY_DIVIDE ,0);
   SETGATE(idt[T_DEBUG  ],0,GD_KT,ENTRY_DEBUG  ,0);
   SETGATE(idt[T_NMI    ],0,GD_KT,ENTRY_NMI    ,0);
@@ -116,6 +134,27 @@ trap_init(void)
   SETGATE(idt[T_SIMDERR],0,GD_KT,ENTRY_SIMDERR,0);
 
   SETGATE(idt[T_SYSCALL],0,GD_KT,ENTRY_SYSCALL,3);
+  
+
+
+  SETGATE(idt[IRQ_OFFSET+0],0,GD_KT,ENTRY_IRQ_0,0);
+  SETGATE(idt[IRQ_OFFSET+1],0,GD_KT,ENTRY_IRQ_1,0);
+  SETGATE(idt[IRQ_OFFSET+2],0,GD_KT,ENTRY_IRQ_2,0);
+  SETGATE(idt[IRQ_OFFSET+3],0,GD_KT,ENTRY_IRQ_3,0);
+  SETGATE(idt[IRQ_OFFSET+4],0,GD_KT,ENTRY_IRQ_4,0);
+  SETGATE(idt[IRQ_OFFSET+5],0,GD_KT,ENTRY_IRQ_5,0);
+  SETGATE(idt[IRQ_OFFSET+6],0,GD_KT,ENTRY_IRQ_6,0);
+  SETGATE(idt[IRQ_OFFSET+7],0,GD_KT,ENTRY_IRQ_7,0);
+  SETGATE(idt[IRQ_OFFSET+8],0,GD_KT,ENTRY_IRQ_8,0);
+  SETGATE(idt[IRQ_OFFSET+9],0,GD_KT,ENTRY_IRQ_9,0);
+  SETGATE(idt[IRQ_OFFSET+10],0,GD_KT,ENTRY_IRQ_10,0);
+  SETGATE(idt[IRQ_OFFSET+11],0,GD_KT,ENTRY_IRQ_11,0);
+  SETGATE(idt[IRQ_OFFSET+12],0,GD_KT,ENTRY_IRQ_12,0);
+  SETGATE(idt[IRQ_OFFSET+13],0,GD_KT,ENTRY_IRQ_13,0);
+  SETGATE(idt[IRQ_OFFSET+14],0,GD_KT,ENTRY_IRQ_14,0);
+  SETGATE(idt[IRQ_OFFSET+15],0,GD_KT,ENTRY_IRQ_15,0);
+  
+
 
 	// Per-CPU setup 
 	trap_init_percpu();
@@ -269,6 +308,11 @@ trap_dispatch(struct Trapframe *tf)
 	// interrupt using lapic_eoi() before calling the scheduler!
 	// LAB 4: Your code here.
 
+	if(tf->tf_trapno == IRQ_OFFSET + IRQ_TIMER){
+	  lapic_eoi();
+	  sched_yield();
+	  return;
+	}
 	// Unexpected trap: The user process or the kernel has a bug.
 	print_trapframe(tf);
 	if (tf->tf_cs == GD_KT)
